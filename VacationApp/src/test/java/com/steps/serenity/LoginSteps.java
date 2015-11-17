@@ -2,10 +2,11 @@ package com.steps.serenity;
 
 import com.pages.LoginPage;
 import com.pages.VacationHomePage;
+
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 
-public class LoginStep extends ScenarioSteps {
+public class LoginSteps extends ScenarioSteps {
 
 	LoginPage loginPage;
 	VacationHomePage vacationHomePage;
@@ -16,22 +17,13 @@ public class LoginStep extends ScenarioSteps {
 	}
 
 	@Step
-	public void enterUsername(String username) {
-		loginPage.enterUsername(username);
-	}
-
-	@Step
-	public void enterPassword(String password) {
-		loginPage.enterPassword(password);
+	public void enterCredentials(String username, String password) {
+		loginPage.enterCredentials(username, password);
 	}
 
 	@Step
 	public void signIn() {
 		loginPage.signIn();
-	}
-
-	@Step
-	public void goToVacationHomePage() {
 		vacationHomePage.open();
 	}
 

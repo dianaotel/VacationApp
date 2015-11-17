@@ -18,11 +18,8 @@ public class LoginPage extends PageObject {
 	@FindBy(css = "input[type='submit']")
 	private WebElementFacade signInButton;
 
-	public void enterUsername(String username) {
+	public void enterCredentials(String username, String password) {
 		enterUsername.type(username);
-	}
-
-	public void enterPassword(String password) {
 		enterPassword.type(password);
 	}
 
