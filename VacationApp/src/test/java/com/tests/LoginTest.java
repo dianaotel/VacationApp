@@ -7,6 +7,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 import com.steps.serenity.LoginStep;
+import com.steps.serenity.NewVacationRequestSteps;
 
 @RunWith(SerenityRunner.class)
 public class LoginTest {
@@ -16,14 +17,15 @@ public class LoginTest {
 
 	@Steps
 	public LoginStep loginStep;
-
+	
 	@Test
 	public void login() {
 		loginStep.goToLoginPage();
-		loginStep.enterUsername("malu.ioan1");
-		loginStep.enterPassword("evoportal");
+		loginStep.enterUsername("vladlupusanschi");
+		loginStep.enterPassword("123456");
 		loginStep.signIn();
-		loginStep.goToVacationHomePage();
+		loginStep.goToVacationHomePage();		
+		
 	}
 
 }
