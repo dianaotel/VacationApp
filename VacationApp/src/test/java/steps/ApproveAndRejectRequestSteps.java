@@ -1,9 +1,8 @@
-package com.steps.serenity;
-
-import com.pages.InboxPage;
-import com.pages.VacationHomePage;
+package steps;
 
 import net.thucydides.core.annotations.Step;
+import pages.InboxPage;
+import pages.VacationHomePage;
 
 public class ApproveAndRejectRequestSteps {
 	InboxPage inboxPage;
