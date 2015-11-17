@@ -32,6 +32,11 @@ public class NewVacationRequestSteps {
 	public void setVacationType() {
 		newVacationRequestPage.VacationWithoutPayment();
 	}
+	
+	@Step
+	public void insertComment(String comment){
+		newVacationRequestPage.AddComment(comment);
+	}
 
 	@Step
 	public void saveVacationRequest() {

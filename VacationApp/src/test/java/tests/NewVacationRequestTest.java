@@ -29,9 +29,10 @@ public class NewVacationRequestTest {
 		loginStep.loginAsTester();
 		loginStep.signIn();
 
-		newVacationRequestSteps.setStartDate(22, "Nov", 2019);
-		newVacationRequestSteps.setEndDate(23, "Nov", 2019);
+		newVacationRequestSteps.setStartDate(22, "Nov", 2018);
+		newVacationRequestSteps.setEndDate(23, "Nov", 2018);
 		newVacationRequestSteps.setVacationType();
+		newVacationRequestSteps.insertComment("Test Comment");
 		newVacationRequestSteps.saveVacationRequest();
 		newVacationRequestSteps.confirmationMessage();
 	}

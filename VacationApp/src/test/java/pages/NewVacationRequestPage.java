@@ -42,7 +42,18 @@ public class NewVacationRequestPage extends PageObject {
 	}
 	
 	@FindBy(css = "[title=Concediu special]")
-	private WebElementFacade concediuSpecial;	
+	private WebElementFacade concediuSpecial;
+	
+	@FindBy(css="[class=optionalComment]")
+	private WebElementFacade addCommentButton;
+	
+	@FindBy(css="[name=commentContent]")
+	private WebElementFacade commentBox;
+	
+	public void AddComment(String comment){
+		addCommentButton.click();
+		commentBox.sendKeys(comment);
+	}
 	
 
 	@FindBy(css="[value=Save]")
