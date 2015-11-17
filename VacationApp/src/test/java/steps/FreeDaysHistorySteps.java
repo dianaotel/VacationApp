@@ -1,6 +1,6 @@
-package com.steps.serenity;
+package steps;
 
-import com.pages.FreeDaysHistoryPage;
+import pages.FreeDaysHistoryPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 

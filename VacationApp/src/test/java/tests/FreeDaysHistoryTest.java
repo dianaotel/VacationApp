@@ -1,4 +1,4 @@
-package com.tests;
+package tests;
 
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
@@ -11,9 +11,5 @@ public class FreeDaysHistoryTest {
 
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
-	
-	
-	
-	
-	
+
 }

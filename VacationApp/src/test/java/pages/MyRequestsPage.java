@@ -1,4 +1,4 @@
-package com.pages;
+package pages;
 
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
@@ -10,12 +10,8 @@ public class MyRequestsPage extends PageObject {
 
 	@FindBy(id = ".nav-list a[href*='menuItem=my-requests']")
 	private WebElementFacade myRequestsMenuItem;
-	
-	public void click_myRequestsMenuItem(){
+
+	public void click_myRequestsMenuItem() {
 		myRequestsMenuItem.click();
-	}
-	
-	public void refreshPage(){
-		
 	}
 }

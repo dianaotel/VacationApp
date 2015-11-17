@@ -1,10 +1,11 @@
-package com.tests;
+package tests;
 
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
-import net.thucydides.core.annotations.Steps;
+import steps.MyRequestsSteps;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
@@ -14,13 +15,15 @@ public class MyRequestsTest {
 
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
-	
-	@FindBy(id="_evovacation_WAR_EvoVacationportlet_HOLIDAYCheckbox")
+
+	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_HOLIDAYCheckbox")
 	private WebElementFacade holidayCheckbox;
+
+	MyRequestsSteps myRequestStep;
 	
-	public void click_holidayCheckbox(){
-		holidayCheckbox.click();
+	@Test 
+	public void click_holidayCheckbox() {
+		myRequestStep.goToMyRequestPage();
 	}
-	
-	
 }
+

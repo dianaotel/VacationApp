@@ -1,6 +1,6 @@
-package com.steps.serenity;
+package steps;
 
-import com.pages.MyRequestsPage;
+import pages.MyRequestsPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 
@@ -12,5 +12,4 @@ public class MyRequestsSteps extends ScenarioSteps {
 	public void goToMyRequestPage() {
 		myRequestsPage.open();	
 	}
-
 }

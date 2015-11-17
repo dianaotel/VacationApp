@@ -19,7 +19,7 @@ public class LoginAsPMTest {
 	public LoginSteps loginStep;
 
 	@Test
-	public void loginAsTester() {
+	public void loginAsPM() {
 		loginStep.goToLoginPage();
 		loginStep.loginAsPM();
 		loginStep.signIn();
