@@ -1,5 +1,9 @@
 package pages;
 
+import java.util.List;
+
+import org.junit.Assert;
+
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
@@ -35,34 +39,32 @@ public class NewVacationRequestPage extends PageObject {
 	public void SickLeave() {
 		sickLeave.click();
 	}
+	
+	@FindBy(css = "[title=Concediu special]")
+	private WebElementFacade concediuSpecial;	
+	
 
-	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_saveButton")
+	@FindBy(css="[value=Save]")
 	private WebElementFacade saveButton;
 
 	public void SaveVacationRequest() {
 		saveButton.click();
 	}
 
-	@FindBy(name = "aui-button aui-button-cancel")
+	@FindBy(css="[value=Cancel]")
 	private WebElementFacade cancelButton;
 
 	public void CancelVacationRequest() {
 		cancelButton.click();
 	}
-
-	@FindBy(css = "input[name='startDate']")
-	private WebElementFacade startDate;
-
-	public void click_startDate() {
-		element(startDate).waitUntilVisible();
-		startDate.click();
+	
+	@FindBy(css="[class=portlet-msg-success]")
+	private WebElementFacade vacationRequestConfirmationMessage;
+	
+	public void VacationRequestConfirmationMessage(){
+	Assert.assertTrue("Request was created", element(vacationRequestConfirmationMessage).getText().contains("Your request completed successfully.")); 
 	}
 
-	@FindBy(css = "input[name='endDate']")
-	private WebElementFacade endDate;
-
-	public void click_endDate() {
-		endDate.click();
-	}
+	
 
 }

@@ -37,5 +37,10 @@ public class NewVacationRequestSteps {
 	public void saveVacationRequest() {
 		newVacationRequestPage.SaveVacationRequest();
 	}
+	
+	@Step
+	public void confirmationMessage(){
+		newVacationRequestPage.VacationRequestConfirmationMessage();
+	}
 
 }
