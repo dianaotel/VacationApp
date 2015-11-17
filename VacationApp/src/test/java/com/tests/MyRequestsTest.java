@@ -1,29 +1,26 @@
 package com.tests;
 
+import net.serenitybdd.core.annotations.findby.FindBy;
+import net.serenitybdd.core.pages.WebElementFacade;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
-import com.steps.serenity.LoginStep;
 
 @RunWith(SerenityRunner.class)
-public class LoginTest {
+public class MyRequestsTest {
 
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
-
-	@Steps
-	public LoginStep loginStep;
-
-	@Test
-	public void login() {
-		loginStep.goToLoginPage();
-		loginStep.enterUsername("vladlupusanschi");
-		loginStep.enterPassword("123456");
-		loginStep.signIn();
-		loginStep.goToVacationHomePage();
+	
+	@FindBy(id="_evovacation_WAR_EvoVacationportlet_HOLIDAYCheckbox")
+	private WebElementFacade holidayCheckbox;
+	
+	public void click_holidayCheckbox(){
+		holidayCheckbox.click();
 	}
-
+	
+	
 }

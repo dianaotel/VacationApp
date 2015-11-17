@@ -9,21 +9,13 @@ import org.openqa.selenium.WebDriver;
 import com.steps.serenity.LoginStep;
 
 @RunWith(SerenityRunner.class)
-public class LoginTest {
+public class FreeDaysHistoryTest {
 
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
-
-	@Steps
-	public LoginStep loginStep;
-
-	@Test
-	public void login() {
-		loginStep.goToLoginPage();
-		loginStep.enterUsername("vladlupusanschi");
-		loginStep.enterPassword("123456");
-		loginStep.signIn();
-		loginStep.goToVacationHomePage();
-	}
-
+	
+	
+	
+	
+	
 }
