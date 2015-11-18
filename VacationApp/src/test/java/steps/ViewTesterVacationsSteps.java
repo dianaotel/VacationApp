@@ -5,7 +5,7 @@ import net.thucydides.core.steps.ScenarioSteps;
 import pages.InboxPage;
 import pages.VacationHomePage;
 
-public class ApproveAndRejectRequestSteps extends ScenarioSteps {
+public class ViewTesterVacationsSteps extends ScenarioSteps {
 	InboxPage inboxPage;
 	VacationHomePage vacationHomePage;
 
