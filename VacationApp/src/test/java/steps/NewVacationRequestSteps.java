@@ -7,12 +7,14 @@ import pages.VacationHomePage;
 import tests.NewVacationRequestTest;
 
 import net.thucydides.core.annotations.Step;
+import net.thucydides.core.steps.ScenarioSteps;
 
-public class NewVacationRequestSteps {
+public class NewVacationRequestSteps extends ScenarioSteps{
 	LoginPage loginPage;
 	VacationHomePage vacationHomePage;
 	NewVacationRequestPage newVacationRequestPage;
 	DatePickerPage datePickerPage;
+	
 
 	@Step
 	public void setStartDate(int day, String month, int year) {
@@ -32,10 +34,22 @@ public class NewVacationRequestSteps {
 	public void setVacationType() {
 		newVacationRequestPage.VacationWithoutPayment();
 	}
+	
+	@Step
+	public void insertComment(String comment){
+		newVacationRequestPage.AddComment(comment);
+	}
 
 	@Step
 	public void saveVacationRequest() {
 		newVacationRequestPage.SaveVacationRequest();
 	}
+	
+	@Step
+	public void confirmationMessage(){
+		newVacationRequestPage.VacationRequestConfirmationMessage();
+	}
+	
+	
 
 }

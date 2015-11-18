@@ -28,7 +28,7 @@ public class LoginSteps extends ScenarioSteps {
 	
 	@Step
 	public void loginAsPM(){
-		enterCredentials(Constants.PM_USERNAME, Constants.PM_PASSWORD);
+		enterCredentials(Constants.PM_EVO_PORTAL_USERNAME, Constants.PM_EVO_PORTAL_PASSWORD);
 	}
 	
 	@Step
