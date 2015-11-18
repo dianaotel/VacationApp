@@ -35,13 +35,18 @@ public class TrackTest {
 		
 		trackSteps.ClickBuildingsDropDown();
 		trackSteps.ClickMainBuildingCheckBox();
-		trackSteps.ClickDeltaBuildingCheckBox();
+		trackSteps.ClickMainBuildingCheckBox();
+		//trackSteps.ClickDeltaBuildingCheckBox();
 		
 		trackSteps.ClickBuildingsDropDown();
 		trackSteps.ClickDepartmentsDropDown();
 		trackSteps.ClickAllDepartments();
 		trackSteps.ClickQaDepartmentCheckBox();
 		trackSteps.ClickApply();
+		
+		trackSteps.CheckListIsSorter("Delta Building", "QA Department");
+		
+		trackSteps.NrOfVacationOnPage(5);
 	}
    
 }

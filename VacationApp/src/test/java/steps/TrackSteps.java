@@ -1,5 +1,9 @@
 package steps;
 
+import javax.validation.constraints.AssertTrue;
+
+import org.junit.Assert;
+
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import pages.DatePickerPage;
@@ -29,11 +33,7 @@ public class TrackSteps extends ScenarioSteps{
 		trackPage.TrackerEndDate();
 		datePickerPage.SetDate(day, month, year);
 	}
-	
-	@Step
-	public void SetEndDate(){
 		
-	}	
 	
 	@Step
 	public void ClickBuildingsDropDown(){
@@ -64,11 +64,23 @@ public class TrackSteps extends ScenarioSteps{
 	@Step
 	public void ClickQaDepartmentCheckBox(){
 		trackPage.ClickQaDepartmentCheckBox();
-	}
+	}	
+	
 	
 	@Step
 	public void ClickApply(){
 		trackPage.ApplyButton();
+	}
+	
+	@Step
+	public void CheckListIsSorter(String building,String department){
+		trackPage.CheckListIsSorted(building, department);
+	}
+	
+	
+	@Step
+	public void NrOfVacationOnPage(int nr){
+		trackPage.NrVacationOnPage(nr);		
 	}
 	
 	

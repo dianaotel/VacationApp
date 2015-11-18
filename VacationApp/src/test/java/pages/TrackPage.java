@@ -1,5 +1,9 @@
 package pages;
 
+import java.util.List;
+
+import org.junit.Assert;
+
 import helpers.Constants;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
@@ -64,5 +68,71 @@ public class TrackPage extends PageObject{
 	public void ClickAllDepartmentCheckBox(){
 		allDepartmentsCheckBox.click();
 	}
+	
+	@FindBy(css = "td[class='align-left col-4 col-building valign-middle']")
+	private List<WebElementFacade> buildingList;
+	
+	@FindBy(css = "td[class='align-left col-5 col-department valign-middle']")
+	private List<WebElementFacade> departmentList;
+	
+	public void CheckListIsSorted(String building, String department){
+		for (WebElementFacade i : buildingList)
+			Assert.assertTrue(i.getText().contentEquals(building));
+		
+		for (WebElementFacade i : departmentList)
+			Assert.assertTrue(i.getText().contains(department));
+	}
+	@FindBy(css="option[value='5']")
+	private WebElementFacade VacationOnPage5;
+	
+	@FindBy(css="option[value='10']")
+	private WebElementFacade VacationOnPage10;
+	
+	@FindBy(css="option[value='20']")
+	private WebElementFacade VacationOnPage20;
+	
+	@FindBy(css="option[value='30']")
+	private WebElementFacade VacationOnPage30;
+	
+	@FindBy(css="option[value='50']")
+	private WebElementFacade VacationOnPage50;
+	
+	@FindBy(css="option[value='75']")
+	private WebElementFacade VacationOnPage75;
+	
+	@FindBy(css="select[id='_evovacation_WAR_EvoVacationportlet_evozonVacationsSearchContainerPageIteratorBottom_itemsPerPage']")
+	private WebElementFacade nrVacationOnPage;
+	public void NrVacationOnPage(int nr){
+		nrVacationOnPage.click();
+		
+		if(nr==5)
+		{
+			VacationOnPage5.click();
+		}
+		else if(nr==10)
+		{
+			VacationOnPage10.click();
+		}
+		else if(nr==20)
+		{
+			VacationOnPage20.click();
+		}
+		else if(nr==30)
+		{
+			VacationOnPage30.click();
+		}
+		else if(nr==50)
+		{
+			VacationOnPage50.click();
+		}
+		else 
+		{
+			VacationOnPage75.click();
+		}
+	}
+    
+	
+	
+	
 
 }
