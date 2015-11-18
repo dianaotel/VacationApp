@@ -28,12 +28,17 @@ public class TrackTest {
 		loginStep.loginAsTester();
 		loginStep.signIn();
 		
-		trackSteps.clickTrackTab();
-		trackSteps.clickBuildingsDropDown();
-		trackSteps.clickMainBuildingCheckBox();
-		trackSteps.clickDeltaBuildingCheckBox();
-		trackSteps.clickBuildingsDropDown();
-		trackSteps.clickDepartmentsDropDown();
+		trackSteps.ClickTrackTab();
+		
+		trackSteps.SetStartDate(11,"Oct",2015);
+		trackSteps.SetEndDate(25, "Nov", 2015);
+		
+		trackSteps.ClickBuildingsDropDown();
+		trackSteps.ClickMainBuildingCheckBox();
+		trackSteps.ClickDeltaBuildingCheckBox();
+		
+		trackSteps.ClickBuildingsDropDown();
+		trackSteps.ClickDepartmentsDropDown();
 		trackSteps.ClickAllDepartments();
 		trackSteps.ClickQaDepartmentCheckBox();
 		trackSteps.ClickApply();
