@@ -19,14 +19,14 @@ public class NewVacationRequestSteps extends ScenarioSteps{
 	@Step
 	public void setStartDate(int day, String month, int year) {
 		newVacationRequestPage.CreateNewVacationRequestTab();
-		datePickerPage.StartDate();
-		datePickerPage.setDate(day, month, year);
+		newVacationRequestPage.StartDate();
+		datePickerPage.SetDate(day, month, year);
 	}
 
 	@Step
 	public void setEndDate(int day, String month, int year) {
-		datePickerPage.EndDate();
-		datePickerPage.setDate(day, month, year);
+		newVacationRequestPage.EndDate();
+		datePickerPage.SetDate(day, month, year);
 
 	}
 

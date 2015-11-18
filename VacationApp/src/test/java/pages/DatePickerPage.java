@@ -8,11 +8,7 @@ import net.thucydides.core.pages.PageObject;
 
 public class DatePickerPage extends PageObject {
 
-	@FindBy(name = "startDate")
-	private WebElementFacade startDate;
-
-	@FindBy(name = "endDate")
-	private WebElementFacade endDate;
+	
 
 	@FindBy(css = "[style*='display: block'] .dp_caption")
 	private WebElementFacade title;
@@ -26,15 +22,11 @@ public class DatePickerPage extends PageObject {
 	@FindBy(css = "[style*='display: block'] .dp_daypicker td:not([class*='not'])")
 	private List<WebElementFacade> dayList;
 
-	public void StartDate() {
-		startDate.click();
-	}
+	
 
-	public void EndDate() {
-		endDate.click();
-	}
+	
 
-	public void setDate(int day, String month, int year) {
+	public void SetDate(int day, String month, int year) {
 
 		title.click();
 		title.click();
