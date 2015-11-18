@@ -39,6 +39,12 @@ public class TrackSteps extends ScenarioSteps{
 	}
 	
 	@Step
+	public void ClickAllDepartments(){
+		trackPage.clickAllDepartmentCheckBox();
+		
+	}
+	
+	@Step
 	public void ClickQaDepartmentCheckBox(){
 		trackPage.clickQaDepartmentCheckBox();
 	}

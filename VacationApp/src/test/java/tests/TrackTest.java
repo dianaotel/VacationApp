@@ -34,6 +34,7 @@ public class TrackTest {
 		trackSteps.clickDeltaBuildingCheckBox();
 		trackSteps.clickBuildingsDropDown();
 		trackSteps.clickDepartmentsDropDown();
+		trackSteps.ClickAllDepartments();
 		trackSteps.ClickQaDepartmentCheckBox();
 		trackSteps.ClickApply();
 	}

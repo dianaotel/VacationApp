@@ -39,12 +39,16 @@ public class TrackPage extends PageObject{
 		deltaBuildingCheckBox.click();
 	}
 	
-	@FindBy(css="input[value='10654']")
+	@FindBy(css="input[id='_evovacation_WAR_EvoVacationportlet_QA DepartmentCheckbox']")
 	private WebElementFacade qaDepartmentCheckBox;
 	public void clickQaDepartmentCheckBox(){
 		qaDepartmentCheckBox.click();
 	}
 	
-	
+	@FindBy(css="input[id='_evovacation_WAR_EvoVacationportlet_departmentsALLCheckbox']")
+	private WebElementFacade allDepartmentsCheckBox;
+	public void clickAllDepartmentCheckBox(){
+		allDepartmentsCheckBox.click();
+	}
 
 }
