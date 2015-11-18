@@ -1,16 +1,36 @@
 package steps;
 
 import pages.FreeDaysHistoryPage;
+import pages.LoginPage;
+import pages.VacationHomePage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 
 public class FreeDaysHistorySteps extends ScenarioSteps {
 
-	FreeDaysHistoryPage freeDaysHistorypage;
+	LoginPage loginPage;
+	VacationHomePage vacationHomePage;
+	FreeDaysHistoryPage freeDaysHistoryPage;
 	
 	@Step
 	public void goToFreeDaysHistoryPage() {
-		freeDaysHistorypage.open();
+		freeDaysHistoryPage.open();
 	}
 	
+	@Step
+	public void vacationCheckbox() {
+		freeDaysHistoryPage.vacationCheckbox();
+	}
+	
+	@Step
+	public void applyButton() {
+		freeDaysHistoryPage.applyButton();
+	}
+	
+	@Step
+	public void verifyThatTypeIsCorrect(String holiday){
+		freeDaysHistoryPage.verifyThatTypeIsCorrect(holiday);
+	}
 }
+
+

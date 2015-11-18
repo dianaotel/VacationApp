@@ -1,9 +1,9 @@
 package tests;
 
-import net.serenitybdd.core.annotations.findby.FindBy;
-import net.serenitybdd.core.pages.WebElementFacade;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
+import net.thucydides.core.annotations.Steps;
+import steps.LoginSteps;
 import steps.MyRequestsSteps;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,18 +14,20 @@ public class MyRequestsTest {
 
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
+	@Steps
+	MyRequestsSteps myRequestSteps;
+	@Steps
+	LoginSteps loginSteps;
 
-	MyRequestsSteps myRequestStep;
-	
-	@Test 
-	public void click_holidayCheckbox() {
-		myRequestStep.goToMyRequestPage();
-	}
-	
 	@Test
-	public void click_vacationWithoudPaymentCheckbox() {
-		myRequestStep.goToMyRequestPage();
-	}
-	
-}
+	public void verifyThatTypeIsCorrect() {
+		loginSteps.goToLoginPage();
+		loginSteps.loginAsDM();
+		loginSteps.signIn();
 
+		myRequestSteps.goToMyRequestPage();
+		myRequestSteps.holidayCheckbox();
+		myRequestSteps.applyButton();
+		myRequestSteps.verifyThatTypeIsCorrect("Holiday");
+	}
+}
