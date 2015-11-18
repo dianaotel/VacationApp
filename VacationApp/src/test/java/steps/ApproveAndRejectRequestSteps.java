@@ -12,12 +12,14 @@ public class ApproveAndRejectRequestSteps {
 	public void approveRequest() {
 		vacationHomePage.inboxButton();
 		inboxPage.approveRequest();
+		inboxPage.approveRequestConfirmationMessage();
 	}
 
 	@Step
 	public void rejectRequest() {
 		vacationHomePage.inboxButton();
 		inboxPage.rejectRequest();
+		inboxPage.rejectRequestConfirmationMessage();
 	}
 
 }
