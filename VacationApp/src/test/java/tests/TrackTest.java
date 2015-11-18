@@ -45,6 +45,8 @@ public class TrackTest {
 		trackSteps.ClickApply();
 		
 		trackSteps.CheckListIsSorter("Delta Building", "QA Department");
+		
+		trackSteps.NrOfVacationOnPage(5);
 	}
    
 }
