@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
 @RunWith(SerenityRunner.class)
-public class ApproveRequestAsPMTest {
+public class RejectRequestAsPMTest {
 
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
@@ -24,11 +24,11 @@ public class ApproveRequestAsPMTest {
 
 	
 	@Test
-	public void approveRequestAsPM() {
+	public void rejectRequestAsPM() {
 		loginSteps.goToLoginPage();
 		loginSteps.loginAsPM();
 		loginSteps.signIn();
-		approveAndRejectRequestSteps.approveRequest();
+		approveAndRejectRequestSteps.rejectRequest();
 	}
 
 }
