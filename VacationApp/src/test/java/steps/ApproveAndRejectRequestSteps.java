@@ -1,10 +1,12 @@
 package steps;
 
 import net.thucydides.core.annotations.Step;
+import net.thucydides.core.steps.ScenarioSteps;
 import pages.InboxPage;
 import pages.VacationHomePage;
 
-public class ApproveAndRejectRequestSteps {
+public class ApproveAndRejectRequestSteps extends ScenarioSteps {
+	
 	InboxPage inboxPage;
 	VacationHomePage vacationHomePage;
 

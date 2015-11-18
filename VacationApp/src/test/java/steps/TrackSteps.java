@@ -1,5 +1,9 @@
 package steps;
 
+import javax.validation.constraints.AssertTrue;
+
+import org.junit.Assert;
+
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import pages.DatePickerPage;
@@ -71,6 +75,12 @@ public class TrackSteps extends ScenarioSteps{
 	@Step
 	public void CheckListIsSorter(String building,String department){
 		trackPage.CheckListIsSorted(building, department);
+	}
+	
+	
+	@Step
+	public void NrOfVacationOnPage(int nr){
+		trackPage.NrVacationOnPage(nr);		
 	}
 	
 	
