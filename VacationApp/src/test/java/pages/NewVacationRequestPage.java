@@ -12,6 +12,20 @@ import net.thucydides.core.annotations.DefaultUrl;
 
 @DefaultUrl(Constants.NEW_VACATION_REQUEST_URL)
 public class NewVacationRequestPage extends PageObject {
+	
+	@FindBy(name = "startDate")
+	private WebElementFacade startDate;
+	
+	public void StartDate() {
+		startDate.click();
+	}
+
+	@FindBy(name = "endDate")
+	private WebElementFacade endDate;
+	
+	public void EndDate() {
+		endDate.click();
+	}
 
 	@FindBy(css = "a[href*='menuItem=new-request']")
 	private WebElementFacade createNewVacationRequestButton;
