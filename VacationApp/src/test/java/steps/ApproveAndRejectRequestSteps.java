@@ -6,6 +6,7 @@ import pages.InboxPage;
 import pages.VacationHomePage;
 
 public class ApproveAndRejectRequestSteps extends ScenarioSteps {
+	
 	InboxPage inboxPage;
 	VacationHomePage vacationHomePage;
 

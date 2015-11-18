@@ -5,7 +5,9 @@ import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.pages.PageObject;
 
-@DefaultUrl("http://172.22.4.88:9090/login")
+import helpers.Constants;
+
+@DefaultUrl(Constants.LOGIN_URL)
 public class LoginPage extends PageObject {
 
 	@FindBy(id = "_58_login")

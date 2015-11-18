@@ -5,6 +5,8 @@ import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.pages.PageObject;
 
+import org.junit.Assert;
+
 import helpers.Constants;
 
 @DefaultUrl(Constants.VIEW_VACATIONS_URL)
@@ -146,7 +148,7 @@ public class ViewVacationsPage extends PageObject {
 	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_applyButton")
 	private WebElementFacade applyButton;
 
-	public void selectApplyButton() {
+	public void clickApplyButton() {
 		applyButton.click();
 	}
 
@@ -156,23 +158,17 @@ public class ViewVacationsPage extends PageObject {
 	public void chooseItemsPerPage() {
 		itemsPerPage.click();
 	}
-
-	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_viewVacationsLastName")
-	private WebElementFacade fieldLastName;
-
-	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_viewVacationsFirstName")
-	private WebElementFacade fieldFirstName;
-
-	public void typeName(String lastName, String firstName) {
-		fieldLastName.type(lastName);
-		fieldFirstName.type(firstName);
-	}
 	
 	@FindBy(css="a[href*='orderByCol=employee']")
 	private WebElementFacade orderByEmployee;
 	
 	public void orderByEmployee() {
 		orderByEmployee.click();
+	}
+	
+	public void applyingChangesWorksCorrectly() {
+		Assert.assertTrue("Apply button works",
+				element(orderByEmployee).getText().contains("Employee"));
 	}
 	
 	@FindBy(css="a[href*='orderByCol=startDate']")
@@ -230,4 +226,16 @@ public class ViewVacationsPage extends PageObject {
 	public void orderByStatus() {
 		orderByStatus.click();
 	}
+	
+	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_viewVacationsLastName")
+	private WebElementFacade fieldLastName;
+
+	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_viewVacationsFirstName")
+	private WebElementFacade fieldFirstName;
+
+	public void insertName(String lastName, String firstName) {
+		fieldLastName.type(lastName);
+		fieldFirstName.type(firstName);
+	}
+	
 }

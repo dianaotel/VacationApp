@@ -19,4 +19,8 @@ public class VacationHomePage extends PageObject {
 	
 	@FindBy(css = "a[href*='menuItem=view-vacations']")
 	private WebElementFacade viewVacationsButton;
+	
+	public void viewVacationsButton() {
+		viewVacationsButton.click();
+	}
 }
