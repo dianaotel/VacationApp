@@ -5,16 +5,15 @@ import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.pages.PageObject;
 
+import org.junit.Assert;
+
 import helpers.Constants;
 
 @DefaultUrl(Constants.INBOX_URL)
 public class InboxPage extends PageObject {
 
-	@FindBy(name="_evovacation_WAR_EvoVacationportlet_rowIds") //trebuie sa pun checkboxurile intr-o lista
-	private WebElementFacade checkFirstBox;
-
-	@FindBy(id = "aui_3_4_0_1_1383") 
-	private WebElementFacade checkSecondBox;
+	@FindBy(name = "_evovacation_WAR_EvoVacationportlet_rowIds")
+	private WebElementFacade checkBox;
 
 	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_multipleApproveButton")
 	private WebElementFacade approveButton;
@@ -23,12 +22,25 @@ public class InboxPage extends PageObject {
 	private WebElementFacade rejectButton;
 
 	public void approveRequest() {
-		checkFirstBox.click();
+		checkBox.click();
 		approveButton.click();
 	}
 
 	public void rejectRequest() {
-		checkSecondBox.click();
+		checkBox.click();
 		rejectButton.click();
+	}
+
+	@FindBy(css = "[class=portlet-msg-success]")
+	private WebElementFacade approveOrRejectRequestConfirmationMessage;
+
+	public void approveRequestConfirmationMessage() {
+		Assert.assertTrue("Request was approved",
+				element(approveOrRejectRequestConfirmationMessage).getText().contains("Your request completed successfully."));
+	}
+	
+	public void rejectRequestConfirmationMessage() {
+		Assert.assertTrue("Request was rejected",
+				element(approveOrRejectRequestConfirmationMessage).getText().contains("Your request completed successfully."));
 	}
 }
