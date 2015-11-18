@@ -12,7 +12,7 @@ import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 
 @RunWith(SerenityRunner.class)
-public class NewVacationRequestTest {
+public class SelectMoreVacTypesAtOnceTest {
 
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
@@ -32,8 +32,8 @@ public class NewVacationRequestTest {
 		loginStep.loginAsTester();
 		loginStep.signIn();
 
-		newVacationRequestSteps.setStartDate(20, "Feb", 2018);
-		newVacationRequestSteps.setEndDate(21, "Feb", 2018);
+		newVacationRequestSteps.setStartDate(20, "Feb", 2020);
+		newVacationRequestSteps.setEndDate(21, "Feb", 2020);
 		newVacationRequestSteps.selectVacationWithoutPayment();
 		newVacationRequestSteps.insertComment("Test Comment");
 		newVacationRequestSteps.saveVacationRequest();

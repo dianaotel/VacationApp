@@ -30,7 +30,7 @@ public class ViewTesterVacationsTest {
 		viewVacationsSteps.goToViewVacationsPage();
 		viewVacationsSteps.insertTesterName();
 		viewVacationsSteps.applyChanges();
-		viewVacationsSteps.verifyAppliedChanges();
+		viewVacationsSteps.searchForVacationsOfEmployee();
 	}
 
 }

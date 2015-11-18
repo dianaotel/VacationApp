@@ -42,7 +42,7 @@ public class ViewVacationsSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void verifyAppliedChanges() {
-		viewVacationsPage.applyingChangesWorksCorrectly();
+	public void searchForVacationsOfEmployee() {
+		viewVacationsPage.searchForVacationsOfEmployee();
 	}
 }

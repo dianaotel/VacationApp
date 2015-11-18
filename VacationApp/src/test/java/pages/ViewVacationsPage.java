@@ -166,8 +166,8 @@ public class ViewVacationsPage extends PageObject {
 		orderByEmployee.click();
 	}
 	
-	public void applyingChangesWorksCorrectly() {
-		Assert.assertTrue("Apply button works",
+	public void searchForVacationsOfEmployee() { 
+		Assert.assertTrue("Searched for vacations of existent employee",
 				element(orderByEmployee).getText().contains("Employee"));
 	}
 	
