@@ -1,5 +1,9 @@
 package pages;
 
+import java.util.List;
+
+import org.junit.Assert;
+
 import helpers.Constants;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
@@ -64,5 +68,23 @@ public class TrackPage extends PageObject{
 	public void ClickAllDepartmentCheckBox(){
 		allDepartmentsCheckBox.click();
 	}
+	
+	@FindBy(css = "td[class='align-left col-4 col-building valign-middle']")
+	private List<WebElementFacade> buildingList;
+	
+	@FindBy(css = "td[class='align-left col-5 col-department valign-middle']")
+	private List<WebElementFacade> departmentList;
+	
+	public void CheckListIsSorted(String building, String department){
+		for (WebElementFacade i : buildingList)
+			Assert.assertTrue(i.getText().contentEquals(building));
+		
+		for (WebElementFacade i : departmentList)
+			Assert.assertTrue(i.getText().contains(department));
+	}
+    
+	
+	
+	
 
 }
