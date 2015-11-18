@@ -6,7 +6,7 @@ import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.pages.PageObject;
 
-@DefaultUrl(Constants.ZIMBRA_Email_URL)
+@DefaultUrl(Constants.ZIMBRA_EMAIL_URL)
 public class ZimbraLoginPage extends PageObject{
 	@FindBy(id="username")
 	private WebElementFacade usernameBox;
