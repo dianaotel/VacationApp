@@ -4,6 +4,13 @@ import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.pages.PageObject;
+
+import java.util.List;
+
+import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
 import helpers.Constants;
 
 import helpers.Constants;
@@ -81,6 +88,13 @@ public class FreeDaysHistoryPage extends PageObject {
 	public void twentiethCheckbox() {
 		twentiethCheckbox.click();
 	}
+	
+	@FindBy(id="_evovacation_WAR_EvoVacationportlet_FIFTIETHCheckbox")
+	private WebElementFacade fiftiethCheckbox;
+	
+	public void fiftiethCheckbox(){
+		fiftiethCheckbox.click();
+	}
 
 	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_RESTCheckbox")
 	private WebElementFacade restCheckbox;
@@ -109,4 +123,18 @@ public class FreeDaysHistoryPage extends PageObject {
 	public void itemsPerpage() {
 		itemsPerpage.click();
 	}
+	
+	@FindBy(css = "a[href*_orderByCol=startDate ")
+	private WebElementFacade startDate;
+	
+	public void startDate() {
+		startDate.click();
+	}
+	
+	public void verifyThatTypeIsCorrect(String type) {
+		  List<WebElement> rows = getDriver().findElements(By.cssSelector("table tbody tr td:nth-child(4) a"));
+		  for (WebElement row : rows) {
+		   Assert.assertTrue("The row does not contains the expected type", row.getText().contentEquals(type));
+		  }
+		 }
 }
