@@ -11,7 +11,7 @@ public class MyRequestsSteps extends ScenarioSteps {
 	LoginPage loginPage;
 	VacationHomePage vacationHomePage;
 	MyRequestsPage myRequestsPage;
-
+	
 	@Step
 	public void goToMyRequestPage() {
 		myRequestsPage.open();

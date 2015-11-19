@@ -31,8 +31,18 @@ public class NewVacationRequestSteps extends ScenarioSteps{
 	}
 
 	@Step
-	public void setVacationType() {
+	public void selectVacationWithoutPayment() {
 		newVacationRequestPage.VacationWithoutPayment();
+	}
+	
+	@Step
+	public void selectHoliday() {
+		newVacationRequestPage.Holiday();
+	}
+	
+	@Step
+	public void selectSickLeave() {
+		newVacationRequestPage.SickLeave();
 	}
 	
 	@Step

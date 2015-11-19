@@ -6,25 +6,26 @@ import org.openqa.selenium.WebDriver;
 
 import steps.LoginSteps;
 import steps.NewVacationRequestSteps;
-import steps.ZimbraLoginSteps;
+import steps.SelectMoreVacTypesAtOnceSteps;
+
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 
 @RunWith(SerenityRunner.class)
-public class NewVacationRequestTest {
+public class SelectMoreVacTypesAtOnceTest {
 
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
 
 	@Steps
 	public LoginSteps loginStep;
-
+	
 	@Steps
 	public NewVacationRequestSteps newVacationRequestSteps;
 	
-	@Steps 
-	ZimbraLoginSteps zimbraLoginSteps;
+	@Steps
+	public SelectMoreVacTypesAtOnceSteps selectMoreVacTypesAtOnceSteps;
 
 	@Test
 	public void newVacationRequest() {
@@ -32,15 +33,12 @@ public class NewVacationRequestTest {
 		loginStep.loginAsTester();
 		loginStep.signIn();
 
-		newVacationRequestSteps.setStartDate(20, "Feb", 2018);
-		newVacationRequestSteps.setEndDate(21, "Feb", 2018);
-		newVacationRequestSteps.selectVacationWithoutPayment();
-		newVacationRequestSteps.insertComment("Test Comment");
+		newVacationRequestSteps.setStartDate(26, "Feb", 2018);
+		newVacationRequestSteps.setEndDate(27, "Feb", 2018);
+		selectMoreVacTypesAtOnceSteps.selectRandomFilterThousand();
 		newVacationRequestSteps.saveVacationRequest();
 		newVacationRequestSteps.confirmationMessage();
-		zimbraLoginSteps.goToZimbraLoginPage();
-		zimbraLoginSteps.loginAsPM();
-		
+
 	}
 
 }

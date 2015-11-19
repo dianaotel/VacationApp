@@ -29,8 +29,8 @@ public class ViewTesterVacationsTest {
 		loginSteps.signIn();
 		viewVacationsSteps.goToViewVacationsPage();
 		viewVacationsSteps.insertTesterName();
-		viewVacationsSteps.applyChanges();
-		viewVacationsSteps.verifyAppliedChanges();
+		viewVacationsSteps.applySelectedFilters();
+		viewVacationsSteps.searchForVacationsOfEmployee();
 	}
 
 }
