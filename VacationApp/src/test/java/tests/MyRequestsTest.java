@@ -29,5 +29,7 @@ public class MyRequestsTest {
 		myRequestSteps.holidayCheckbox();
 		myRequestSteps.applyButton();
 		myRequestSteps.verifyThatTypeIsCorrect("Holiday");
+		myRequestSteps.grabVacationList();
+
 	}
 }
