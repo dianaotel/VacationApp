@@ -29,7 +29,7 @@ public class ViewTesterVacationsTest {
 		loginSteps.signIn();
 		viewVacationsSteps.goToViewVacationsPage();
 		viewVacationsSteps.insertTesterName();
-		viewVacationsSteps.applyChanges();
+		viewVacationsSteps.applySelectedFilters();
 		viewVacationsSteps.searchForVacationsOfEmployee();
 	}
 

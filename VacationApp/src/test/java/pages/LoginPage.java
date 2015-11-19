@@ -19,7 +19,7 @@ public class LoginPage extends PageObject {
 	@FindBy(css = "input[type='submit']")
 	private WebElementFacade signInButton;
 
-	public void enterCredentials(String username, String password) {
+	public void enterEvoportalLoginCredentials(String username, String password) {
 		enterUsername.type(username);
 		enterPassword.type(password);
 	}

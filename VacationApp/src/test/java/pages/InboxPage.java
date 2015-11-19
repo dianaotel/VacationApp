@@ -21,12 +21,12 @@ public class InboxPage extends PageObject {
 	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_multipleRejectButton")
 	private WebElementFacade rejectButton;
 
-	public void approveRequest() {
+	public void approveVacationRequest() {
 		checkBox.click();
 		approveButton.click();
 	}
 
-	public void rejectRequest() {
+	public void rejectVacationRequest() {
 		checkBox.click();
 		rejectButton.click();
 	}
@@ -34,12 +34,12 @@ public class InboxPage extends PageObject {
 	@FindBy(css = ".portlet-msg-success")
 	private WebElementFacade approveOrRejectRequestConfirmationMessage;
 
-	public void approveRequestConfirmationMessage() {
+	public void checkConfirmationMessageForApprovedRequest() {
 		Assert.assertTrue("Request was approved",
 				element(approveOrRejectRequestConfirmationMessage).getText().contains("Your request completed successfully."));
 	}
 	
-	public void rejectRequestConfirmationMessage() {
+	public void checkConfirmationMessageForRejectedRequest() {
 		Assert.assertTrue("Request was rejected",
 				element(approveOrRejectRequestConfirmationMessage).getText().contains("Your request completed successfully."));
 	}

@@ -32,11 +32,11 @@ public class NewVacationRequestPage extends PageObject {
 	}
 
 	@FindBy(css = ".vacationType")
-	private WebElement vacationCheckboxContainer;
+	private WebElement vacationRadioButtonsContainer;
 
 	public void selectRandomFilter() {
-		element(vacationCheckboxContainer).waitUntilVisible();
-		List<WebElement> filterList = vacationCheckboxContainer.findElements(By.cssSelector(".vacationTypeChoice"));
+		element(vacationRadioButtonsContainer).waitUntilVisible();
+		List<WebElement> filterList = vacationRadioButtonsContainer.findElements(By.cssSelector(".vacationTypeChoice"));
 
 		if (filterList.size() > 0) {
 			Random rand = new Random();

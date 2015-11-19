@@ -3,7 +3,7 @@ package tests;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
-import steps.ApproveAndRejectRequestSteps;
+import steps.ApproveAndRejectVacationRequestSteps;
 import steps.LoginSteps;
 
 import org.junit.Test;
@@ -20,15 +20,14 @@ public class RejectRequestAsPMTest {
 	public LoginSteps loginSteps;
 
 	@Steps
-	public ApproveAndRejectRequestSteps approveAndRejectRequestSteps;
+	public ApproveAndRejectVacationRequestSteps approveAndRejectRequestSteps;
 
-	
 	@Test
-	public void rejectRequestAsPM() {
+	public void rejectVacationRequestAsPM() {
 		loginSteps.goToLoginPage();
 		loginSteps.loginAsPM();
 		loginSteps.signIn();
-		approveAndRejectRequestSteps.rejectRequest();
+		approveAndRejectRequestSteps.rejectVacationRequest();
 	}
 
 }

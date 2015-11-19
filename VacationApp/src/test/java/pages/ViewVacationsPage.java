@@ -17,7 +17,7 @@ public class ViewVacationsPage extends PageObject {
 	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_vacationTypeALLCheckbox")
 	private WebElementFacade allVacationTypesCheckbox;
 
-	public void selectAllVacationTypesCheckbox() {
+	public void selectVacationTypesALLCheckbox() {
 		allVacationTypesCheckbox.click();
 	}
 
@@ -66,35 +66,35 @@ public class ViewVacationsPage extends PageObject {
 	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_FIFTHCheckbox")
 	private WebElementFacade oneFiveCheckbox;
 
-	public void selectOneFiveCheckbox() {
+	public void selectOneToFiveCheckbox() {
 		oneFiveCheckbox.click();
 	}
 
 	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_viewDaysNumberALLCheckbox")
 	private WebElementFacade allDaysNumberCheckbox;
 
-	public void selectAllDaysNumberCheckbox() {
+	public void selectDaysNumberALLCheckbox() {
 		allDaysNumberCheckbox.click();
 	}
 
 	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_TENTHCheckbox")
 	private WebElementFacade sixTenCheckbox;
 
-	public void selectSixTenCheckbox() {
+	public void selectSixToTenCheckbox() {
 		sixTenCheckbox.click();
 	}
 
 	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_TWENTIETHCheckbox")
 	private WebElementFacade elevenTwentyCheckbox;
 
-	public void selectElevenTwentyCheckbox() {
+	public void selectElevenToTwentyCheckbox() {
 		elevenTwentyCheckbox.click();
 	}
 
 	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_FIFTIETHCheckbox")
 	private WebElementFacade twentyoneFiftyCheckbox;
 
-	public void selectTwentyoneFiftyCheckbox() {
+	public void selectTwentyoneToFiftyCheckbox() {
 		twentyoneFiftyCheckbox.click();
 	}
 
@@ -108,63 +108,63 @@ public class ViewVacationsPage extends PageObject {
 	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_viewVacationStatusALLCheckbox")
 	private WebElementFacade allVacationStatusCheckbox;
 
-	public void selectAllVacationStatusCheckbox() {
+	public void selectVacationStatusALLCheckbox() {
 		allVacationStatusCheckbox.click();
 	}
 
 	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_PENDINGCheckbox")
 	private WebElementFacade pendingCheckbox;
 
-	public void selectPendingCheckbox() {
+	public void selectPendingVacations() {
 		pendingCheckbox.click();
 	}
 
 	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_APPROVEDCheckbox")
 	private WebElementFacade approvedCheckbox;
 
-	public void selectApprovedCheckbox() {
+	public void selectApprovedVacations() {
 		approvedCheckbox.click();
 	}
 
 	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_REJECTEDCheckbox")
 	private WebElementFacade rejectedCheckbox;
 
-	public void selectRejectedCheckbox() {
+	public void selectRejectedVacations() {
 		rejectedCheckbox.click();
 	}
 
 	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_WITHDRAWNCheckbox")
 	private WebElementFacade withdrawnCheckbox;
 
-	public void selectWithdrawnCheckbox() {
+	public void selectWithdrawnVacations() {
 		withdrawnCheckbox.click();
 	}
 
 	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_CANCELLEDCheckbox")
 	private WebElementFacade cancelledCheckbox;
 
-	public void selectCancelledCheckbox() {
+	public void selectCancelledVacations() {
 		cancelledCheckbox.click();
 	}
 
 	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_applyButton")
 	private WebElementFacade applyButton;
 
-	public void clickApplyButton() {
+	public void applySelectedFilters() {
 		applyButton.click();
 	}
 
 	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_evozonVacationsSearchContainerPageIteratorBottom_itemsPerPage")
 	private WebElementFacade itemsPerPage;
 
-	public void chooseItemsPerPage() {
+	public void chooseNumberOfItemsPerPage() {
 		itemsPerPage.click();
 	}
 
 	@FindBy(css = "a[href*='orderByCol=employee']")
 	private WebElementFacade orderByEmployee;
 
-	public void orderByEmployee() {
+	public void orderTableByEmployee() {
 		orderByEmployee.click();
 	}
 
@@ -176,56 +176,56 @@ public class ViewVacationsPage extends PageObject {
 	@FindBy(css = "a[href*='orderByCol=startDate']")
 	private WebElementFacade orderByStartDate;
 
-	public void orderByStartDate() {
+	public void orderTableByStartDate() {
 		orderByStartDate.click();
 	}
 
 	@FindBy(css = "a[href*='orderByCol=endDate']")
 	private WebElementFacade orderByEndDate;
 
-	public void orderByEndDate() {
+	public void orderTableByEndDate() {
 		orderByEndDate.click();
 	}
 
 	@FindBy(css = "a[href*='orderByCol=modifiedDate']")
 	private WebElementFacade orderByModifiedDate;
 
-	public void orderByModifiedDate() {
+	public void orderTableByModifiedDate() {
 		orderByModifiedDate.click();
 	}
 
 	@FindBy(css = "a[href*='orderByCol=lastUpdate']")
 	private WebElementFacade orderByLastUpdatedBy;
 
-	public void orderByLastUpdatedBy() {
+	public void orderTableByLastUpdatedBy() {
 		orderByLastUpdatedBy.click();
 	}
 
 	@FindBy(css = "a[href*='orderByCol=assignee']")
 	private WebElementFacade orderByApprover;
 
-	public void orderByApprover() {
+	public void orderTableByApprover() {
 		orderByApprover.click();
 	}
 
 	@FindBy(css = "a[href*='orderByCol=daysNr']")
 	private WebElementFacade orderByDaysNumber;
 
-	public void orderByDaysNumber() {
+	public void orderTableByDaysNumber() {
 		orderByDaysNumber.click();
 	}
 
 	@FindBy(css = "a[href*='orderByCol=type']")
 	private WebElementFacade orderByType;
 
-	public void orderByType() {
+	public void orderTableByType() {
 		orderByType.click();
 	}
 
 	@FindBy(css = "a[href*='orderByCol=status']")
 	private WebElementFacade orderByStatus;
 
-	public void orderByStatus() {
+	public void orderTableByStatus() {
 		orderByStatus.click();
 	}
 
@@ -235,7 +235,7 @@ public class ViewVacationsPage extends PageObject {
 	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_viewVacationsFirstName")
 	private WebElementFacade fieldFirstName;
 
-	public void insertName(String lastName, String firstName) {
+	public void insertEmployeeName(String lastName, String firstName) {
 		fieldLastName.type(lastName);
 		fieldFirstName.type(firstName);
 	}

@@ -13,32 +13,32 @@ public class ViewVacationsSteps extends ScenarioSteps {
 
 	@Step
 	public void goToViewVacationsPage() {
-		vacationHomePage.viewVacationsButton();
+		vacationHomePage.goToViewVacations();
 	}
 
 	@Step
-	public void insertName(String lastName, String firstName) {
-		viewVacationsPage.insertName(lastName, firstName);
+	public void insertEmployeeName(String lastName, String firstName) {
+		viewVacationsPage.insertEmployeeName(lastName, firstName);
 	}
 
 	@Step
 	public void insertTesterName() {
-		insertName(Constants.TESTER_LAST_NAME, Constants.TESTER_FIRST_NAME);
+		insertEmployeeName(Constants.TESTER_LAST_NAME, Constants.TESTER_FIRST_NAME);
 	}
 
 	@Step
 	public void insertPMName() {
-		insertName(Constants.PM_LAST_NAME, Constants.PM_FIRST_NAME);
+		insertEmployeeName(Constants.PM_LAST_NAME, Constants.PM_FIRST_NAME);
 	}
 
 	@Step
 	public void insertDMName() {
-		insertName(Constants.DM_LAST_NAME, Constants.DM_FIRST_NAME);
+		insertEmployeeName(Constants.DM_LAST_NAME, Constants.DM_FIRST_NAME);
 	}
 
 	@Step
-	public void applyChanges() {
-		viewVacationsPage.clickApplyButton();
+	public void applySelectedFilters() {
+		viewVacationsPage.applySelectedFilters();
 	}
 
 	@Step

@@ -13,14 +13,14 @@ public class VacationHomePage extends PageObject {
 	@FindBy(css = "a[href*='menuItem=inbox']")
 	private WebElementFacade inboxButton;
 
-	public void inboxButton() {
+	public void goToInbox() {
 		inboxButton.click();
 	}
 	
 	@FindBy(css = "a[href*='menuItem=view-vacations']")
 	private WebElementFacade viewVacationsButton;
 	
-	public void viewVacationsButton() {
+	public void goToViewVacations() {
 		viewVacationsButton.click();
 	}
 }
