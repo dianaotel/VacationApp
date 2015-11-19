@@ -34,28 +34,24 @@ public class NewVacationRequestPage extends PageObject {
 	@FindBy(css = ".vacationType")
 	private WebElement vacationCheckboxContainer;
 
-	public void grabVacationFilterList(String name) {
+	public void selectRandomFilter() {
+		element(vacationCheckboxContainer).waitUntilVisible();
+		List<WebElement> filterList = vacationCheckboxContainer.findElements(By.cssSelector(".vacationTypeChoice"));
 
-		element(vacationCheckboxContainer).waitUntilVisible();
-		List<WebElement> filterList = vacationCheckboxContainer.findElements(By.cssSelector(".vacationTypeChoice"));
-		for (WebElement webElement : filterList) {
-			if (webElement.getText().contains(name)) {
-				webElement.findElement(By.cssSelector("input[type*='radio']")).click();
-			}
-		}
-	}
-	
-	public void selectRandomFilter(){
-		element(vacationCheckboxContainer).waitUntilVisible();
-		List<WebElement> filterList = vacationCheckboxContainer.findElements(By.cssSelector(".vacationTypeChoice"));
-		
-		if(filterList.size() > 0){
+		if (filterList.size() > 0) {
 			Random rand = new Random();
 			int nowRand = rand.nextInt(filterList.size());
-			
+
 			System.out.println("Rand: " + nowRand);
 			System.out.println("filterList.size(): " + filterList.size());
 			filterList.get(Integer.valueOf(nowRand)).findElement(By.cssSelector("input[type*='radio']")).click();
+		}
+	}
+
+	public void selectRandomFilterThousand() {
+		
+		for (int i = 1; i <= 1000; i++) {
+			selectRandomFilter();
 		}
 	}
 

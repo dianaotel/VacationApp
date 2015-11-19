@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 
 import steps.LoginSteps;
 import steps.NewVacationRequestSteps;
-import steps.SelectMoreVacTypesAtOnceSpets;
+import steps.SelectMoreVacTypesAtOnceSteps;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
@@ -25,7 +25,7 @@ public class SelectMoreVacTypesAtOnceTest {
 	public NewVacationRequestSteps newVacationRequestSteps;
 	
 	@Steps
-	public SelectMoreVacTypesAtOnceSpets selectMoreVacTypesAtOnceSpets;
+	public SelectMoreVacTypesAtOnceSteps selectMoreVacTypesAtOnceSteps;
 
 	@Test
 	public void newVacationRequest() {
@@ -35,7 +35,7 @@ public class SelectMoreVacTypesAtOnceTest {
 
 		newVacationRequestSteps.setStartDate(26, "Feb", 2018);
 		newVacationRequestSteps.setEndDate(27, "Feb", 2018);
-		selectMoreVacTypesAtOnceSpets.selectVacTypesRandomly();
+		selectMoreVacTypesAtOnceSteps.selectRandomFilterThousand();
 		newVacationRequestSteps.saveVacationRequest();
 		newVacationRequestSteps.confirmationMessage();
 
