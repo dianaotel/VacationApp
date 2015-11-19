@@ -30,7 +30,7 @@ public class TrackTest {
 		
 		trackSteps.ClickTrackTab();
 		
-		trackSteps.SetStartDate(11,"Oct",2015);
+		trackSteps.SetStartDate(24,"Nov",2015);
 		trackSteps.SetEndDate(25, "Nov", 2015);
 		
 		trackSteps.ClickBuildingsDropDown();
@@ -44,9 +44,11 @@ public class TrackTest {
 		trackSteps.ClickQaDepartmentCheckBox();
 		trackSteps.ClickApply();
 		
-		trackSteps.CheckListIsSorter("Delta Building", "QA Department");
+		trackSteps.CheckListIsSorter("Main Building", "QA Department");
 		
-		trackSteps.NrOfVacationOnPage(5);
+		//trackSteps.NrOfVacationOnPage(5);
+		
+		trackSteps.CheckNameListIsSorted();
 	}
    
 }

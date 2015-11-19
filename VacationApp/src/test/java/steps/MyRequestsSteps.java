@@ -12,6 +12,8 @@ public class MyRequestsSteps extends ScenarioSteps {
 	VacationHomePage vacationHomePage;
 	MyRequestsPage myRequestsPage;
 	
+	
+	
 	@Step
 	public void goToMyRequestPage() {
 		myRequestsPage.open();	
@@ -30,6 +32,11 @@ public class MyRequestsSteps extends ScenarioSteps {
 	@Step
 	public void verifyThatTypeIsCorrect(String holiday){
 		myRequestsPage.verifyThatTypeIsCorrect(holiday);
+	}
+	
+	@Step
+	public void grabVacationList(){
+		myRequestsPage.grabResultsList();
 	}
 	
 }
