@@ -1,10 +1,14 @@
 package pages;
 
 import java.util.List;
+import java.util.Random;
 
 import org.junit.Assert;
+import org.openqa.selenium.WebElement;
 
 import helpers.Constants;
+
+import net.serenitybdd.core.annotations.findby.By;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
@@ -18,6 +22,9 @@ public class NewVacationRequestPage extends PageObject {
 
 	@FindBy(name = "endDate")
 	private WebElementFacade endDate;
+
+	@FindBy(css = ".vacationType")
+	private WebElement vacationRadioButtonsContainer;
 
 	@FindBy(css = "a[href*='menuItem=new-request']")
 	private WebElementFacade createNewVacationRequestButton;
@@ -34,13 +41,13 @@ public class NewVacationRequestPage extends PageObject {
 	@FindBy(css = "[title=Concediu special]")
 	private WebElementFacade concediuSpecial;
 
-	@FindBy(css = "[class=optionalComment]")
+	@FindBy(css = ".optionalComment")
 	private WebElementFacade addCommentButton;
 
 	@FindBy(css = "[name=commentContent]")
 	private WebElementFacade commentBox;
 
-	@FindBy(css = "[value=Save]")
+	@FindBy(css="[value=Save]")
 	private WebElementFacade saveButton;
 
 	@FindBy(css = "[value=Cancel]")
@@ -78,17 +85,43 @@ public class NewVacationRequestPage extends PageObject {
 		commentBox.sendKeys(comment);
 	}
 
+	
+
 	public void saveVacationRequest() {
 		saveButton.click();
 	}
+
+
 
 	public void cancelVacationRequest() {
 		cancelButton.click();
 	}
 
-	public void vacationRequestConfirmationMessage() {
+	
+	public void vacationRequestConfirmationMessage() {	
 		Assert.assertTrue("Request was created",
 				element(vacationRequestConfirmationMessage).getText().contains("Your request completed successfully."));
+	}
+
+	public void selectRandomFilter() {
+		element(vacationRadioButtonsContainer).waitUntilVisible();
+		List<WebElement> filterList = vacationRadioButtonsContainer.findElements(By.cssSelector(".vacationTypeChoice"));
+
+		if (filterList.size() > 0) {
+			Random rand = new Random();
+			int nowRand = rand.nextInt(filterList.size());
+
+			System.out.println("Rand: " + nowRand);
+			System.out.println("filterList.size(): " + filterList.size());
+			filterList.get(Integer.valueOf(nowRand)).findElement(By.cssSelector("input[type*='radio']")).click();
+		}
+	}
+
+	public void selectRandomFilterThousand() {
+
+		for (int i = 1; i <= 1000; i++) {
+			selectRandomFilter();
+		}
 	}
 
 }

@@ -29,14 +29,24 @@ public class NewVacationRequestSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void setVacationType() {
+	public void selectVacationWithoutPayment() {
 		newVacationRequestPage.vacationWithoutPayment();
-	}
+	}	
 
 	@Step
+
 	public void insertComment(String comment) {
 		newVacationRequestPage.addComment(comment);
 	}
+	
+	public void selectHoliday() {
+		newVacationRequestPage.holiday();
+	}
+	
+	@Step
+	public void selectSickLeave() {
+		newVacationRequestPage.sickLeave();
+	}	
 
 	@Step
 	public void saveVacationRequest() {
