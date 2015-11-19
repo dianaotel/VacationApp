@@ -1,7 +1,13 @@
 package steps;
 
+import java.util.List;
+
+import org.junit.Assert;
+
+import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
+
 import pages.DatePickerPage;
 import pages.LoginPage;
 import pages.NewVacationRequestPage;
@@ -49,8 +55,9 @@ public class SelectMoreVacTypesAtOnceSpets extends ScenarioSteps {
 	}
 
 	@Step
-	public void selectRandomlyMoreTypes() {
+	public void selectVacTypesRandomly() {
 
+		//
 	}
 
 	@Step

@@ -5,6 +5,8 @@ import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.pages.PageObject;
 
+import java.util.List;
+
 import org.junit.Assert;
 
 import helpers.Constants;
@@ -158,75 +160,75 @@ public class ViewVacationsPage extends PageObject {
 	public void chooseItemsPerPage() {
 		itemsPerPage.click();
 	}
-	
-	@FindBy(css="a[href*='orderByCol=employee']")
+
+	@FindBy(css = "a[href*='orderByCol=employee']")
 	private WebElementFacade orderByEmployee;
-	
+
 	public void orderByEmployee() {
 		orderByEmployee.click();
 	}
-	
-	public void searchForVacationsOfEmployee() { 
+
+	public void searchForVacationsOfEmployee() {
 		Assert.assertTrue("Searched for vacations of existent employee",
 				element(orderByEmployee).getText().contains("Employee"));
 	}
-	
-	@FindBy(css="a[href*='orderByCol=startDate']")
+
+	@FindBy(css = "a[href*='orderByCol=startDate']")
 	private WebElementFacade orderByStartDate;
-	
+
 	public void orderByStartDate() {
 		orderByStartDate.click();
 	}
-	
-	@FindBy(css="a[href*='orderByCol=endDate']")
+
+	@FindBy(css = "a[href*='orderByCol=endDate']")
 	private WebElementFacade orderByEndDate;
-	
+
 	public void orderByEndDate() {
 		orderByEndDate.click();
 	}
-	
-	@FindBy(css="a[href*='orderByCol=modifiedDate']")
+
+	@FindBy(css = "a[href*='orderByCol=modifiedDate']")
 	private WebElementFacade orderByModifiedDate;
-	
+
 	public void orderByModifiedDate() {
 		orderByModifiedDate.click();
 	}
-	
-	@FindBy(css="a[href*='orderByCol=lastUpdate']")
+
+	@FindBy(css = "a[href*='orderByCol=lastUpdate']")
 	private WebElementFacade orderByLastUpdatedBy;
-	
+
 	public void orderByLastUpdatedBy() {
 		orderByLastUpdatedBy.click();
 	}
-	
-	@FindBy(css="a[href*='orderByCol=assignee']")
+
+	@FindBy(css = "a[href*='orderByCol=assignee']")
 	private WebElementFacade orderByApprover;
-	
+
 	public void orderByApprover() {
 		orderByApprover.click();
 	}
-	
-	@FindBy(css="a[href*='orderByCol=daysNr']")
+
+	@FindBy(css = "a[href*='orderByCol=daysNr']")
 	private WebElementFacade orderByDaysNumber;
-	
+
 	public void orderByDaysNumber() {
 		orderByDaysNumber.click();
 	}
-	
-	@FindBy(css="a[href*='orderByCol=type']")
+
+	@FindBy(css = "a[href*='orderByCol=type']")
 	private WebElementFacade orderByType;
-	
+
 	public void orderByType() {
 		orderByType.click();
 	}
-	
-	@FindBy(css="a[href*='orderByCol=status']")
+
+	@FindBy(css = "a[href*='orderByCol=status']")
 	private WebElementFacade orderByStatus;
-	
+
 	public void orderByStatus() {
 		orderByStatus.click();
 	}
-	
+
 	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_viewVacationsLastName")
 	private WebElementFacade fieldLastName;
 
@@ -237,5 +239,5 @@ public class ViewVacationsPage extends PageObject {
 		fieldLastName.type(lastName);
 		fieldFirstName.type(firstName);
 	}
-	
+
 }
