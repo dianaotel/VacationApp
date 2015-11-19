@@ -6,7 +6,8 @@ import org.openqa.selenium.WebDriver;
 
 import steps.LoginSteps;
 import steps.NewVacationRequestSteps;
-import steps.ZimbraLoginSteps;
+import steps.SelectMoreVacTypesAtOnceSpets;
+
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
@@ -19,12 +20,12 @@ public class SelectMoreVacTypesAtOnceTest {
 
 	@Steps
 	public LoginSteps loginStep;
-
+	
 	@Steps
 	public NewVacationRequestSteps newVacationRequestSteps;
 	
-	@Steps 
-	ZimbraLoginSteps zimbraLoginSteps;
+	@Steps
+	public SelectMoreVacTypesAtOnceSpets selectMoreVacTypesAtOnceSpets;
 
 	@Test
 	public void newVacationRequest() {
@@ -32,15 +33,12 @@ public class SelectMoreVacTypesAtOnceTest {
 		loginStep.loginAsTester();
 		loginStep.signIn();
 
-		newVacationRequestSteps.setStartDate(20, "Feb", 2020);
-		newVacationRequestSteps.setEndDate(21, "Feb", 2020);
-		newVacationRequestSteps.selectVacationWithoutPayment();
-		newVacationRequestSteps.insertComment("Test Comment");
+		newVacationRequestSteps.setStartDate(26, "Feb", 2018);
+		newVacationRequestSteps.setEndDate(27, "Feb", 2018);
+		selectMoreVacTypesAtOnceSpets.selectVacTypesRandomly();
 		newVacationRequestSteps.saveVacationRequest();
 		newVacationRequestSteps.confirmationMessage();
-		zimbraLoginSteps.goToZimbraLoginPage();
-		zimbraLoginSteps.loginAsPM();
-		
+
 	}
 
 }
