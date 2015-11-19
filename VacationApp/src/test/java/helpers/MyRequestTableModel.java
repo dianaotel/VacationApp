@@ -1,6 +1,6 @@
-package tools;
+package helpers;
 
-public class VacationEntryModel {
+public class MyRequestTableModel {
 	
 	private String startDate;
 	private String endDate;
@@ -8,6 +8,7 @@ public class VacationEntryModel {
 	private String type;
 	private String lastUpdatedBy;
 	private String status;
+	
 	
 	
 	public String getStartDate() {
@@ -46,4 +47,6 @@ public class VacationEntryModel {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+	
+	
 }

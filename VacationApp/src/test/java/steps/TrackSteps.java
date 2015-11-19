@@ -83,6 +83,12 @@ public class TrackSteps extends ScenarioSteps{
 		trackPage.NrVacationOnPage(nr);		
 	}
 	
+	@Step
+	public void CheckNameListIsSorted(){
+		trackPage.EmployeeName();
+		trackPage.CheckEmployeeNameIsSorted();
+	}
+	
 	
 	
 	
