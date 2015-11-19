@@ -31,7 +31,7 @@ public class InboxPage extends PageObject {
 		rejectButton.click();
 	}
 
-	@FindBy(css = "[class=portlet-msg-success]")
+	@FindBy(css = ".portlet-msg-success")
 	private WebElementFacade approveOrRejectRequestConfirmationMessage;
 
 	public void approveRequestConfirmationMessage() {

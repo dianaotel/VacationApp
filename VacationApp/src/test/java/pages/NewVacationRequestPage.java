@@ -86,7 +86,7 @@ public class NewVacationRequestPage extends PageObject {
 	@FindBy(css = "[title=Concediu special]")
 	private WebElementFacade concediuSpecial;
 
-	@FindBy(css = "[class=optionalComment]")
+	@FindBy(css = ".optionalComment")
 	private WebElementFacade addCommentButton;
 
 	@FindBy(css = "[name=commentContent]")
@@ -111,7 +111,7 @@ public class NewVacationRequestPage extends PageObject {
 		cancelButton.click();
 	}
 
-	@FindBy(css = "[class=portlet-msg-success]")
+	@FindBy(css = ".portlet-msg-success")
 	private WebElementFacade vacationRequestConfirmationMessage;
 
 	public void VacationRequestConfirmationMessage() {
