@@ -41,7 +41,6 @@ public class VacationListPage extends PageObject {
 			
 		}
 		
-		
 		return resultList;
 	}
 }

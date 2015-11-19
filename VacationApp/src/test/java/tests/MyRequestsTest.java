@@ -32,4 +32,13 @@ public class MyRequestsTest {
 		myRequestSteps.grabVacationList();
 
 	}
+
+	@Test
+	public void verifyVacationsInFuture() {
+		loginSteps.goToLoginPage();
+		loginSteps.loginAsPM();
+		loginSteps.signIn();
+		
+		
+	}
 }
