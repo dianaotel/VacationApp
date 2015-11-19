@@ -37,4 +37,8 @@ public class MyRequestsSteps extends ScenarioSteps {
 		myRequestsPage.grabResultsList();
 	}
 
+	@Step
+	public void futureVacationsCheckbox() {
+		myRequestsPage.futureVacationsCheckbox();
+	}
 }

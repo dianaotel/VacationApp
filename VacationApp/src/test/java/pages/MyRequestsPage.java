@@ -4,10 +4,10 @@ import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.pages.PageObject;
-
+import java.util.Date;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -154,7 +154,7 @@ public class MyRequestsPage extends PageObject {
 	public void verifyThatTypeIsCorrect(String type) {
 		List<WebElement> rows = getDriver().findElements(By.cssSelector("table tbody tr td:nth-child(4) a"));
 		for (WebElement row : rows) {
-			Assert.assertTrue("The row does not contains the expected type", row.getText().contentEquals(type));
+			Assert.assertTrue("The row does not contain the expected type", row.getText().contentEquals(type));
 		}
 	}
 	
@@ -167,25 +167,42 @@ public class MyRequestsPage extends PageObject {
 		element(vacationListContainer).waitUntilVisible();
 		List<WebElement> vacationEntryList = vacationListContainer.findElements(By.cssSelector("tr.results-row:not(.lfr-template)"));
 		for (WebElement webElement : vacationEntryList) {
-//			System.out.println("Element: " + webElement.getText());
 			MyRequestTableModel entryNow = new MyRequestTableModel();
-			
 			String startDate = webElement.findElement(By.cssSelector("td[class*='start.date']")).getText();
-			String endDate = webElement.findElement(By.cssSelector("td[class*='end.date']")).getText();
-			String dayNumber = webElement.findElement(By.cssSelector("td[class*='day.number']")).getText();
-			String type = webElement.findElement(By.cssSelector("td[class*='type']")).getText();
-			String lastUpdate = webElement.findElement(By.cssSelector("td[class*='last.update']")).getText();
-			String status = webElement.findElement(By.cssSelector("td[class*='header.status']")).getText();
 			
+			Date startDateActual = getDate(startDate);
+			SimpleDateFormat sdfDate = new SimpleDateFormat("dd/MM/yyyy");
+			Date timeNow = new Date();
+			String strDate = sdfDate.format(timeNow);
+			Date timeNowActual = getDate(strDate);
+
+			if (startDateActual.after(timeNowActual)){
+				System.out.println("Displayed date is in the future.");
+			} else if (startDateActual.before(timeNowActual))
+				Assert.fail("Dates in the pass are also displayed.");
+
 			entryNow.setStartDate(startDate);
-			entryNow.setEndDate(endDate);
-			entryNow.setDaysNumber(dayNumber);
-			entryNow.setType(type);
-			entryNow.setLastUpdatedBy(lastUpdate);
-			entryNow.setStatus(status);
-			
 		}
-		
 		return resultList;
+	}
+	
+	public void printDate(){
+	
+		System.out.println("This is the date " + getDate("12/09/2000"));
+	}
+	
+	public Date getDate(String dateString) {
+		Date date;
+		SimpleDateFormat sdfDate = new SimpleDateFormat("dd/MM/yyyy");
+	    String now = dateString;
+
+	    try{
+	    	date = sdfDate.parse(now);
+	    } 
+	    catch(Throwable e){
+	    	date = new Date();
+	    	e.printStackTrace();
+	    }
+	   return date;
 	}
 }

@@ -21,24 +21,24 @@ public class MyRequestsTest {
 
 	@Test
 	public void verifyThatTypeIsCorrect() {
-		loginSteps.goToLoginPage();
-		loginSteps.loginAsDM();
-		loginSteps.signIn();
-
-		myRequestSteps.goToMyRequestPage();
+		
 		myRequestSteps.holidayCheckbox();
 		myRequestSteps.applyButton();
+		myRequestSteps.futureVacationsCheckbox();
+		myRequestSteps.applyButton();
 		myRequestSteps.verifyThatTypeIsCorrect("Holiday");
-		myRequestSteps.grabVacationList();
-
 	}
-
+		
 	@Test
 	public void verifyVacationsInFuture() {
+		
 		loginSteps.goToLoginPage();
 		loginSteps.loginAsPM();
 		loginSteps.signIn();
 		
-		
+		myRequestSteps.goToMyRequestPage();
+		myRequestSteps.futureVacationsCheckbox();
+		myRequestSteps.applyButton();
+		myRequestSteps.grabVacationList();
 	}
 }
