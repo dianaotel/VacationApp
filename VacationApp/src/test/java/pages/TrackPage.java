@@ -1,5 +1,6 @@
 package pages;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.sql.rowset.spi.TransactionalWriter;
@@ -9,6 +10,8 @@ import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 
 import helpers.Constants;
+import helpers.MyRequestTableModel;
+import helpers.TrackTableModel;
 import net.serenitybdd.core.annotations.findby.By;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
@@ -21,84 +24,35 @@ public class TrackPage extends PageObject {
 	@FindBy(name = "trackerStartDate")
 	private WebElementFacade trackerStartDate;
 
-	public void TrackerStartDate() {
-		trackerStartDate.click();
-	}
-
 	@FindBy(name = "trackerEndDate")
 	private WebElementFacade trackerEndDate;
-
-	public void TrackerEndDate() {
-		trackerEndDate.click();
-	}
 
 	@FindBy(css = "[value=Apply]")
 	private WebElementFacade applyButton;
 
-	public void ApplyButton() {
-		applyButton.click();
-	}
-
 	@FindBy(css = "#buildings dl dt div.hida")
 	private WebElementFacade buildingsDropDown;
-
-	public void ClickBuildingsDropDown() {
-		buildingsDropDown.click();
-	}
 
 	@FindBy(css = "#departments dl dt div.hida")
 	private WebElementFacade departmentsDropDown;
 
-	public void ClickDepartmentsDropDown() {
-		departmentsDropDown.click();
-	}
-
 	@FindBy(css = "input[value='Main Building']")
 	private WebElementFacade mainBuildingCheckBox;
-
-	public void ClickMainBuildingCheckBox() {
-		mainBuildingCheckBox.click();
-	}
-
-	@FindBy(css = "input[value='Delta Building']")
-	private WebElementFacade deltaBuildingCheckBox;
-
-	public void ClickDeltaBuildingCheckBox() {
-		deltaBuildingCheckBox.click();
-	}
-
-	@FindBy(css = "input[id='_evovacation_WAR_EvoVacationportlet_QA DepartmentCheckbox']")
-	private WebElementFacade qaDepartmentCheckBox;
-
-	public void ClickQaDepartmentCheckBox() {
-		qaDepartmentCheckBox.click();
-	}
-
-	@FindBy(css = "input[id='_evovacation_WAR_EvoVacationportlet_departmentsALLCheckbox']")
-	private WebElementFacade allDepartmentsCheckBox;
-
-	public void ClickAllDepartmentCheckBox() {
-		allDepartmentsCheckBox.click();
-	}
-
-	@FindBy(css = ".col-building.valign-middle")
-	private List<WebElementFacade> buildingList;
 
 	@FindBy(css = ".col-department.valign-middle")
 	private List<WebElementFacade> departmentList;
 
-	public void CheckListIsSorted(String building, String department) {
+	@FindBy(css = ".col-building.valign-middle")
+	private List<WebElementFacade> buildingList;
 
-		for (WebElementFacade i : buildingList) {
-			System.out.println("aici " + i.getText());
-			Assert.assertTrue(i.getText().contains(building));
-		}
+	@FindBy(css = "input[id='_evovacation_WAR_EvoVacationportlet_departmentsALLCheckbox']")
+	private WebElementFacade allDepartmentsCheckBox;
 
-		for (WebElementFacade i : departmentList) {
-			System.out.println("aici " + i.getText());
-			Assert.assertTrue(i.getText().contains(department));
-		}
-	}
+	@FindBy(css = "input[id='_evovacation_WAR_EvoVacationportlet_QA DepartmentCheckbox']")
+	private WebElementFacade qaDepartmentCheckBox;
+
+	@FindBy(css = "input[value='Delta Building']")
+	private WebElementFacade deltaBuildingCheckBox;
 
 	@FindBy(css = "option[value='5']")
 	private WebElementFacade VacationOnPage5;
@@ -121,7 +75,60 @@ public class TrackPage extends PageObject {
 	@FindBy(css = "select[id='_evovacation_WAR_EvoVacationportlet_evozonVacationsSearchContainerPageIteratorBottom_itemsPerPage']")
 	private WebElementFacade nrVacationOnPage;
 
-	public void NrVacationOnPage(int nr) {
+	@FindBy(css = ".results-grid")
+	private WebElement vacationListContainer;
+
+	@FindBy(css = "#_evovacation_WAR_EvoVacationportlet_evozonVacationsSearchContainer_col-employee-name > span > a")
+	private WebElementFacade employeeName;
+
+	public void trackerStartDate() {
+		trackerStartDate.click();
+	}
+
+	public void trackerEndDate() {
+		trackerEndDate.click();
+	}
+
+	public void applyButton() {
+		applyButton.click();
+	}
+
+	public void clickBuildingsDropDown() {
+		buildingsDropDown.click();
+	}
+
+	public void clickDepartmentsDropDown() {
+		departmentsDropDown.click();
+	}
+
+	public void clickMainBuildingCheckBox() {
+		mainBuildingCheckBox.click();
+	}
+
+	public void clickDeltaBuildingCheckBox() {
+		deltaBuildingCheckBox.click();
+	}
+
+	public void clickQaDepartmentCheckBox() {
+		qaDepartmentCheckBox.click();
+	}
+
+	public void clickAllDepartmentCheckBox() {
+		allDepartmentsCheckBox.click();
+	}
+
+	public void checkListIsSorted(String building, String department) {
+
+		for (WebElementFacade i : buildingList) {
+			Assert.assertTrue(i.getText().contains(building));
+		}
+
+		for (WebElementFacade i : departmentList) {
+			Assert.assertTrue(i.getText().contains(department));
+		}
+	}
+
+	public void nrVacationOnPage(int nr) {
 		nrVacationOnPage.click();
 
 		if (nr == 5) {
@@ -139,29 +146,50 @@ public class TrackPage extends PageObject {
 		}
 	}
 
-	@FindBy(css = "#_evovacation_WAR_EvoVacationportlet_evozonVacationsSearchContainer_col-employee-name > span > a")
-	private WebElementFacade employeeName;
+	public List<TrackTableModel> grabResultsList() {
 
-	public void EmployeeName() {
-		employeeName.click();
-	}
+		List<TrackTableModel> resultList = new ArrayList<TrackTableModel>();
+		element(vacationListContainer).waitUntilVisible();
+		List<WebElement> vacationEntryList = vacationListContainer
+				.findElements(By.cssSelector("tr.results-row:not(.lfr-template)"));
+		int i = 0;
+		for (WebElement webElement : vacationEntryList) {
+			// System.out.println("Element: " + webElement.getText());
+			TrackTableModel entryNow = new TrackTableModel();
 
-	@FindBy(css = "td.col-employee-name.first.sort-column")
-	private List<WebElementFacade> employeeList;
+			String startDate = webElement.findElement(By.cssSelector("td[class*='start.date']")).getText();
+			String endDate = webElement.findElement(By.cssSelector("td[class*='end.date']")).getText();
+			String type = webElement.findElement(By.cssSelector("td[class*='type']")).getText();
+			String status = webElement.findElement(By.cssSelector("td[class*='header.status']")).getText();
+			String employeeName = webElement.findElement(By.cssSelector("td[class*='employee-name']")).getText();
+			String department = webElement.findElement(By.cssSelector("td[class*='department']")).getText();
+			String building = webElement.findElement(By.cssSelector("td[class*='building']")).getText();
+			int id = i++;
 
-	public void CheckEmployeeNameIsSorted() {
-		String previousName = "a";
-		String nameListIsSorted = "true";
-		for (WebElementFacade currentName : employeeList) {
-			if (currentName.getText().compareTo(previousName) <= 0) {
-				nameListIsSorted = "false";
-				break;
-			}
-			previousName = currentName.getText();
+			entryNow.setStartDate(startDate);
+			entryNow.setEndDate(endDate);
+			entryNow.setType(type);
+			entryNow.setStatus(status);
+			entryNow.setBuilding(building);
+			entryNow.setDepartment(department);
+			entryNow.setEmployeeName(employeeName);
+			entryNow.setId(id);
+			System.out.println(id);
+
 		}
 
-		Assert.assertTrue("Name list is correctly sorted", element(nameListIsSorted).getText().contains("true"));
+		return resultList;
+	}	
 
+	public void employeeName() {
+		employeeName.click();
 	}
+	
+	/*public void tralala() {
+
+		for (TrackTableModel object : grabResultsList()) {
+			System.out.println(object.getStartDate());
+		}
+	}*/
 
 }

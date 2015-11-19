@@ -17,11 +17,11 @@ public class ZimbraLoginPage extends PageObject{
 	@FindBy(css="[type=submit]")
 	private WebElementFacade loginButton;
 	
-	public void EnterCredentials(String username, String password){
+	public void enterCredentials(String username, String password){
 		usernameBox.type(username);
 		passwordBox.type(password);
 	}
-	public void Login(){
+	public void login(){
 		loginButton.click();
 	}
 	

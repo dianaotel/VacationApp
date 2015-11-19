@@ -1,9 +1,12 @@
 package tests;
 
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
+import helpers.TrackTableModel;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
@@ -12,45 +15,41 @@ import steps.TrackSteps;
 
 @RunWith(SerenityRunner.class)
 public class TrackTest {
-	
+
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
-	
+
 	@Steps
 	public LoginSteps loginStep;
-	
+
 	@Steps
 	public TrackSteps trackSteps;
-	
+
 	@Test
 	public void trackTest() {
 		loginStep.goToLoginPage();
 		loginStep.loginAsTester();
 		loginStep.signIn();
-		
-		trackSteps.ClickTrackTab();
-		
-		trackSteps.SetStartDate(24,"Nov",2015);
-		trackSteps.SetEndDate(25, "Nov", 2015);
-		
-		trackSteps.ClickBuildingsDropDown();
-		trackSteps.ClickMainBuildingCheckBox();
-		trackSteps.ClickMainBuildingCheckBox();
-		//trackSteps.ClickDeltaBuildingCheckBox();
-		
-		trackSteps.ClickBuildingsDropDown();
-		trackSteps.ClickDepartmentsDropDown();
-		trackSteps.ClickAllDepartments();
-		trackSteps.ClickQaDepartmentCheckBox();
-		trackSteps.ClickApply();
-		
-		trackSteps.CheckListIsSorter("Main Building", "QA Department");
-		
-		//trackSteps.NrOfVacationOnPage(5);
-		
-		trackSteps.CheckNameListIsSorted();
+
+		trackSteps.clickTrackTab();
+		trackSteps.setStartDate(24, "Nov", 2015);
+		trackSteps.setEndDate(25, "Nov", 2015);
+		trackSteps.clickBuildingsDropDown();
+		trackSteps.clickMainBuildingCheckBox();
+		trackSteps.clickMainBuildingCheckBox();		
+		trackSteps.clickBuildingsDropDown();
+		trackSteps.clickDepartmentsDropDown();
+		trackSteps.clickAllDepartments();
+		trackSteps.clickQaDepartmentCheckBox();
+		trackSteps.clickApply();
+		trackSteps.checkListIsSorter("Main Building", "QA Department");
+		List<TrackTableModel> listaInitiala = trackSteps.grabVacationList();
+		trackSteps.sortByEmployeeName();
+		List<TrackTableModel> listaOrdonata = trackSteps.grabVacationList();
+		trackSteps.compareLists(listaOrdonata, listaInitiala);
+
+		// trackSteps.NrOfVacationOnPage(5);
+		// trackSteps.CheckNameListIsSorted();
 	}
-   
+
 }
-
-

@@ -16,26 +16,26 @@ public class ZimbraLoginSteps extends ScenarioSteps{
 	
 	@Step
 	public void enterCredentials(String username, String password){
-		zimbraLoginPage.EnterCredentials(username, password);
-		zimbraLoginPage.Login();
+		zimbraLoginPage.enterCredentials(username, password);
+		zimbraLoginPage.login();
 	}
 	
 	@Step
 	public void loginAsTester(){
 		enterCredentials(Constants.TESTER_EMAIL_USERNAME, Constants.TESTER_EMAIL_PASSWORD);
-		zimbraLoginPage.Login();
+		zimbraLoginPage.login();
 	}
 	
 	@Step
 	public void loginAsPM(){
 		enterCredentials(Constants.PM_EMAIL_USERNAME, Constants.PM_EMAIL_PASSWORD);
-		zimbraLoginPage.Login();
+		zimbraLoginPage.login();
 	}
 	
 	@Step
 	public void loginAsDM(){
 		enterCredentials(Constants.DM_EMAIL_USERNAME, Constants.DM_EMAIL_PASSWORD);
-		zimbraLoginPage.Login();
+		zimbraLoginPage.login();
 	}
 	
 	

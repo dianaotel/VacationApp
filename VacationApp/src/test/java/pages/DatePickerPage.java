@@ -26,7 +26,7 @@ public class DatePickerPage extends PageObject {
 
 	
 
-	public void SetDate(int day, String month, int year) {
+	public void setDate(int day, String month, int year) {
 
 		title.click();
 		title.click();

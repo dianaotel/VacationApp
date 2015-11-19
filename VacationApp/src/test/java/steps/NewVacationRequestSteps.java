@@ -9,47 +9,43 @@ import tests.NewVacationRequestTest;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 
-public class NewVacationRequestSteps extends ScenarioSteps{
+public class NewVacationRequestSteps extends ScenarioSteps {
 	LoginPage loginPage;
 	VacationHomePage vacationHomePage;
 	NewVacationRequestPage newVacationRequestPage;
 	DatePickerPage datePickerPage;
-	
 
 	@Step
 	public void setStartDate(int day, String month, int year) {
-		newVacationRequestPage.CreateNewVacationRequestTab();
-		newVacationRequestPage.StartDate();
-		datePickerPage.SetDate(day, month, year);
+		newVacationRequestPage.createNewVacationRequestTab();
+		newVacationRequestPage.startDate();
+		datePickerPage.setDate(day, month, year);
 	}
 
 	@Step
 	public void setEndDate(int day, String month, int year) {
-		newVacationRequestPage.EndDate();
-		datePickerPage.SetDate(day, month, year);
-
+		newVacationRequestPage.endDate();
+		datePickerPage.setDate(day, month, year);
 	}
 
 	@Step
 	public void setVacationType() {
-		newVacationRequestPage.VacationWithoutPayment();
+		newVacationRequestPage.vacationWithoutPayment();
 	}
-	
+
 	@Step
-	public void insertComment(String comment){
-		newVacationRequestPage.AddComment(comment);
+	public void insertComment(String comment) {
+		newVacationRequestPage.addComment(comment);
 	}
 
 	@Step
 	public void saveVacationRequest() {
-		newVacationRequestPage.SaveVacationRequest();
+		newVacationRequestPage.saveVacationRequest();
 	}
-	
+
 	@Step
-	public void confirmationMessage(){
-		newVacationRequestPage.VacationRequestConfirmationMessage();
+	public void confirmationMessage() {
+		newVacationRequestPage.vacationRequestConfirmationMessage();
 	}
-	
-	
 
 }

@@ -3,6 +3,10 @@ package steps;
 import pages.LoginPage;
 import pages.MyRequestsPage;
 import pages.VacationHomePage;
+
+import java.util.List;
+
+import helpers.MyRequestTableModel;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 
@@ -35,8 +39,8 @@ public class MyRequestsSteps extends ScenarioSteps {
 	}
 	
 	@Step
-	public void grabVacationList(){
-		myRequestsPage.grabResultsList();
+	public List<MyRequestTableModel> grabVacationList(){
+		return myRequestsPage.grabResultsList();
 	}
 	
 }

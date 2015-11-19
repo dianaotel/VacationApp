@@ -5,9 +5,15 @@ import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 import steps.LoginSteps;
 import steps.MyRequestsSteps;
+
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
+
+import helpers.MyRequestTableModel;
+import helpers.PrintUtils;
 
 @RunWith(SerenityRunner.class)
 public class MyRequestsTest {
@@ -29,7 +35,8 @@ public class MyRequestsTest {
 		myRequestSteps.holidayCheckbox();
 		myRequestSteps.applyButton();
 		myRequestSteps.verifyThatTypeIsCorrect("Holiday");
-		myRequestSteps.grabVacationList();
+		List<MyRequestTableModel> resultList = myRequestSteps.grabVacationList();
+		PrintUtils.printMyRequestModelList(resultList);
 
 	}
 }

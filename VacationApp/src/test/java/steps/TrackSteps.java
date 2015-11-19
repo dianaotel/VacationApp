@@ -1,9 +1,13 @@
 package steps;
 
+import java.util.Collections;
+import java.util.List;
+
 import javax.validation.constraints.AssertTrue;
 
 import org.junit.Assert;
 
+import helpers.TrackTableModel;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import pages.DatePickerPage;
@@ -11,89 +15,112 @@ import pages.LoginPage;
 import pages.TrackPage;
 import pages.VacationHomePage;
 
-public class TrackSteps extends ScenarioSteps{
+public class TrackSteps extends ScenarioSteps {
 	LoginPage loginPage;
 	VacationHomePage vacationHomePage;
 	DatePickerPage datePickerPage;
 	TrackPage trackPage;
-	
+
 	@Step
-	public void ClickTrackTab(){
+	public void clickTrackTab() {
 		trackPage.open();
 	}
-	
+
 	@Step
-	public void SetStartDate(int day, String month, int year){
-		trackPage.TrackerStartDate();
-		datePickerPage.SetDate(day, month, year);
+	public void setStartDate(int day, String month, int year) {
+		trackPage.trackerStartDate();
+		datePickerPage.setDate(day, month, year);
 	}
-	
+
 	@Step
-	public void SetEndDate(int day, String month, int year){
-		trackPage.TrackerEndDate();
-		datePickerPage.SetDate(day, month, year);
+	public void setEndDate(int day, String month, int year) {
+		trackPage.trackerEndDate();
+		datePickerPage.setDate(day, month, year);
 	}
+
+	@Step
+	public void clickBuildingsDropDown() {
+		trackPage.clickBuildingsDropDown();
+	}
+
+	@Step
+	public void clickMainBuildingCheckBox() {
+		trackPage.clickMainBuildingCheckBox();
+	}
+
+	@Step
+	public void clickDeltaBuildingCheckBox() {
+		trackPage.clickDeltaBuildingCheckBox();
+	}
+
+	@Step
+	public void clickDepartmentsDropDown() {
+		trackPage.clickDepartmentsDropDown();
+	}
+
+	@Step
+	public void clickAllDepartments() {
+		trackPage.clickAllDepartmentCheckBox();
+
+	}
+
+	@Step
+	public void clickQaDepartmentCheckBox() {
+		trackPage.clickQaDepartmentCheckBox();
+	}
+
+	@Step
+	public void clickApply() {
+		trackPage.applyButton();
+	}
+
+	@Step
+	public void checkListIsSorter(String building, String department) {
+		trackPage.checkListIsSorted(building, department);
+	}
+
+	@Step
+	public void nrOfVacationOnPage(int nr) {
+		trackPage.nrVacationOnPage(nr);
+	}
+
+	@Step
+	public void sortByEmployeeName() {
+		trackPage.employeeName();
+	}
+
+	@Step
+	public List<TrackTableModel> grabVacationList() {
+		return trackPage.grabResultsList();
+	}
+
+	@Step
+	public List<TrackTableModel> sortInitialList(List<TrackTableModel> listaInitiala) {
+		Collections.sort(listaInitiala);
+		return listaInitiala;
+	}
+
+	@Step
+	public boolean compareLists(List<TrackTableModel> listaOrdonata, List<TrackTableModel> listaInitiala) {
+		for(TrackTableModel listaInitialaData :listaInitiala){
+			for(TrackTableModel listaOrdonataData : listaOrdonata){
+				if(listaOrdonataData.getEmployeeName().equals(listaInitialaData.getEmployeeName()))
+					return true;
+			}
+		}
 		
-	
-	@Step
-	public void ClickBuildingsDropDown(){
-		trackPage.ClickBuildingsDropDown();
+		return false;
 	}
-	
-	@Step
-	public void ClickMainBuildingCheckBox(){
-		trackPage.ClickMainBuildingCheckBox();
-	}
-	
-	@Step
-	public void ClickDeltaBuildingCheckBox(){
-		trackPage.ClickDeltaBuildingCheckBox();
-	}
-	
-	@Step
-	public void ClickDepartmentsDropDown(){
-		trackPage.ClickDepartmentsDropDown();
-	}
-	
-	@Step
-	public void ClickAllDepartments(){
-		trackPage.ClickAllDepartmentCheckBox();
-		
-	}
-	
-	@Step
-	public void ClickQaDepartmentCheckBox(){
-		trackPage.ClickQaDepartmentCheckBox();
-	}	
-	
-	
-	@Step
-	public void ClickApply(){
-		trackPage.ApplyButton();
-	}
-	
-	@Step
-	public void CheckListIsSorter(String building,String department){
-		trackPage.CheckListIsSorted(building, department);
-	}
-	
-	
-	@Step
-	public void NrOfVacationOnPage(int nr){
-		trackPage.NrVacationOnPage(nr);		
-	}
-	
-	@Step
-	public void CheckNameListIsSorted(){
-		trackPage.EmployeeName();
-		trackPage.CheckEmployeeNameIsSorted();
-	}
-	
-	
-	
-	
-	
-	
-	
+
+	// @Step
+	// public void CheckIfNameListIsSorted(){
+	// for (resultList i : grabResultList) {
+	//
+	// }
 
 }
+
+/*
+ * @Step public void CheckNameListIsSorted(){ trackPage.EmployeeName();
+ * trackPage.CheckEmployeeNameIsSorted(); }
+ */
