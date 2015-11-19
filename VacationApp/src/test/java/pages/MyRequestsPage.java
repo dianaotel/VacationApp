@@ -4,12 +4,15 @@ import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.pages.PageObject;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import helpers.Constants;
+import helpers.MyRequestTableModel;
 
 @DefaultUrl(Constants.MY_REQUESTS_PAGE_URL)
 public class MyRequestsPage extends PageObject {
@@ -153,5 +156,36 @@ public class MyRequestsPage extends PageObject {
 		for (WebElement row : rows) {
 			Assert.assertTrue("The row does not contains the expected type", row.getText().contentEquals(type));
 		}
+	}
+	
+	@FindBy(css = ".results-grid")
+	private WebElement vacationListContainer;
+	
+	public List<MyRequestTableModel> grabResultsList(){
+		
+		List<MyRequestTableModel> resultList = new ArrayList<MyRequestTableModel>();
+		element(vacationListContainer).waitUntilVisible();
+		List<WebElement> vacationEntryList = vacationListContainer.findElements(By.cssSelector("tr.results-row:not(.lfr-template)"));
+		for (WebElement webElement : vacationEntryList) {
+//			System.out.println("Element: " + webElement.getText());
+			MyRequestTableModel entryNow = new MyRequestTableModel();
+			
+			String startDate = webElement.findElement(By.cssSelector("td[class*='start.date']")).getText();
+			String endDate = webElement.findElement(By.cssSelector("td[class*='end.date']")).getText();
+			String dayNumber = webElement.findElement(By.cssSelector("td[class*='day.number']")).getText();
+			String type = webElement.findElement(By.cssSelector("td[class*='type']")).getText();
+			String lastUpdate = webElement.findElement(By.cssSelector("td[class*='last.update']")).getText();
+			String status = webElement.findElement(By.cssSelector("td[class*='header.status']")).getText();
+			
+			entryNow.setStartDate(startDate);
+			entryNow.setEndDate(endDate);
+			entryNow.setDaysNumber(dayNumber);
+			entryNow.setType(type);
+			entryNow.setLastUpdatedBy(lastUpdate);
+			entryNow.setStatus(status);
+			
+		}
+		
+		return resultList;
 	}
 }
