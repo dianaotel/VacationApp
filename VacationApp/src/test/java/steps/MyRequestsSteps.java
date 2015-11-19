@@ -15,32 +15,35 @@ public class MyRequestsSteps extends ScenarioSteps {
 	LoginPage loginPage;
 	VacationHomePage vacationHomePage;
 	MyRequestsPage myRequestsPage;
-	
-	
-	
+
 	@Step
 	public void goToMyRequestPage() {
-		myRequestsPage.open();	
+		myRequestsPage.open();
 	}
-	
+
 	@Step
 	public void holidayCheckbox() {
 		myRequestsPage.holidayCheckbox();
 	}
-	
+
 	@Step
 	public void applyButton() {
 		myRequestsPage.applyButton();
 	}
-	
+
 	@Step
-	public void verifyThatTypeIsCorrect(String holiday){
+	public void verifyThatTypeIsCorrect(String holiday) {
 		myRequestsPage.verifyThatTypeIsCorrect(holiday);
 	}
-	
+
 	@Step
-	public List<MyRequestTableModel> grabVacationList(){
-		return myRequestsPage.grabResultsList();
+	public void grabVacationList() {
+		myRequestsPage.grabResultsList();
+
 	}
-	
+
+	@Step
+	public void futureVacationsCheckbox() {
+		myRequestsPage.futureVacationsCheckbox();
+	}
 }

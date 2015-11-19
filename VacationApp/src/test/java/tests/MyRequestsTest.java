@@ -27,16 +27,24 @@ public class MyRequestsTest {
 
 	@Test
 	public void verifyThatTypeIsCorrect() {
+
+		myRequestSteps.holidayCheckbox();
+		myRequestSteps.applyButton();
+		myRequestSteps.futureVacationsCheckbox();
+		myRequestSteps.applyButton();
+		myRequestSteps.verifyThatTypeIsCorrect("Holiday");
+	}
+
+	@Test
+	public void verifyVacationsInFuture() {
+
 		loginSteps.goToLoginPage();
-		loginSteps.loginAsDM();
+		loginSteps.loginAsPM();
 		loginSteps.signIn();
 
 		myRequestSteps.goToMyRequestPage();
-		myRequestSteps.holidayCheckbox();
+		myRequestSteps.futureVacationsCheckbox();
 		myRequestSteps.applyButton();
-		myRequestSteps.verifyThatTypeIsCorrect("Holiday");
-		List<MyRequestTableModel> resultList = myRequestSteps.grabVacationList();
-		PrintUtils.printMyRequestModelList(resultList);
-
+		myRequestSteps.grabVacationList();
 	}
 }

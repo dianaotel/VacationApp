@@ -10,7 +10,6 @@ public class MyRequestTableModel {
 	private String status;
 	
 	
-	
 	public String getStartDate() {
 		return startDate;
 	}
@@ -47,6 +46,7 @@ public class MyRequestTableModel {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+
 	
 	
 }
