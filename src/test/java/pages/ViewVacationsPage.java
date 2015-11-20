@@ -17,117 +17,117 @@ public class ViewVacationsPage extends PageObject {
 	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_vacationTypeALLCheckbox")
 	private WebElementFacade allVacationTypesCheckbox;
 
+	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_HOLIDAYCheckbox")
+	private WebElementFacade holidayCheckbox;
+
+	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_VACATION_WITHOUT_PAYMENTCheckbox")
+	private WebElementFacade vacationWithoutPaymentCheckbox;
+
+	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_SPECIAL_VACATIONCheckbox")
+	private WebElementFacade specialVacationCheckbox;
+
+	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_SICK_LEAVECheckbox")
+	private WebElementFacade sickLeaveCheckbox;
+
+	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_MATERNITY_LEAVECheckbox")
+	private WebElementFacade maternityLeaveCheckbox;
+
+	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_futureVacationsCheckbox")
+	private WebElementFacade futureVacationsCheckbox;
+
+	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_FIFTHCheckbox")
+	private WebElementFacade oneFiveCheckbox;
+
+	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_viewDaysNumberALLCheckbox")
+	private WebElementFacade allDaysNumberCheckbox;
+
+	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_TENTHCheckbox")
+	private WebElementFacade sixTenCheckbox;
+
+	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_TWENTIETHCheckbox")
+	private WebElementFacade elevenTwentyCheckbox;
+
+	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_FIFTIETHCheckbox")
+	private WebElementFacade twentyoneFiftyCheckbox;
+
+	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_RESTCheckbox")
+	private WebElementFacade fiftyonePlusCheckbox;
+
+	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_viewVacationStatusALLCheckbox")
+	private WebElementFacade allVacationStatusCheckbox;
+
+	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_PENDINGCheckbox")
+	private WebElementFacade pendingCheckbox;
+
+	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_APPROVEDCheckbox")
+	private WebElementFacade approvedCheckbox;
+
+	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_REJECTEDCheckbox")
+	private WebElementFacade rejectedCheckbox;
+
 	public void selectVacationTypesALLCheckbox() {
 		allVacationTypesCheckbox.click();
 	}
-
-	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_HOLIDAYCheckbox")
-	private WebElementFacade holidayCheckbox;
 
 	public void selectHolidayCheckbox() {
 		holidayCheckbox.click();
 	}
 
-	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_VACATION_WITHOUT_PAYMENTCheckbox")
-	private WebElementFacade vacationWithoutPaymentCheckbox;
-
 	public void selectVacationWithoutPaymentCheckbox() {
 		vacationWithoutPaymentCheckbox.click();
 	}
-
-	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_SPECIAL_VACATIONCheckbox")
-	private WebElementFacade specialVacationCheckbox;
 
 	public void selectSpecialVacationCheckbox() {
 		specialVacationCheckbox.click();
 	}
 
-	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_SICK_LEAVECheckbox")
-	private WebElementFacade sickLeaveCheckbox;
-
 	public void selectSickLeaveCheckbox() {
 		sickLeaveCheckbox.click();
 	}
-
-	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_MATERNITY_LEAVECheckbox")
-	private WebElementFacade maternityLeaveCheckbox;
 
 	public void selectMaternityLeaveCheckbox() {
 		maternityLeaveCheckbox.click();
 	}
 
-	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_futureVacationsCheckbox")
-	private WebElementFacade futureVacationsCheckbox;
-
 	public void selectShowFutureVacationsCheckbox() {
 		futureVacationsCheckbox.click();
 	}
-
-	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_FIFTHCheckbox")
-	private WebElementFacade oneFiveCheckbox;
 
 	public void selectOneToFiveCheckbox() {
 		oneFiveCheckbox.click();
 	}
 
-	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_viewDaysNumberALLCheckbox")
-	private WebElementFacade allDaysNumberCheckbox;
-
 	public void selectDaysNumberALLCheckbox() {
 		allDaysNumberCheckbox.click();
 	}
-
-	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_TENTHCheckbox")
-	private WebElementFacade sixTenCheckbox;
 
 	public void selectSixToTenCheckbox() {
 		sixTenCheckbox.click();
 	}
 
-	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_TWENTIETHCheckbox")
-	private WebElementFacade elevenTwentyCheckbox;
-
 	public void selectElevenToTwentyCheckbox() {
 		elevenTwentyCheckbox.click();
 	}
-
-	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_FIFTIETHCheckbox")
-	private WebElementFacade twentyoneFiftyCheckbox;
 
 	public void selectTwentyoneToFiftyCheckbox() {
 		twentyoneFiftyCheckbox.click();
 	}
 
-	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_RESTCheckbox")
-	private WebElementFacade fiftyonePlusCheckbox;
-
 	public void selectFiftyonePlusCheckbox() {
 		fiftyonePlusCheckbox.click();
 	}
-
-	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_viewVacationStatusALLCheckbox")
-	private WebElementFacade allVacationStatusCheckbox;
 
 	public void selectVacationStatusALLCheckbox() {
 		allVacationStatusCheckbox.click();
 	}
 
-	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_PENDINGCheckbox")
-	private WebElementFacade pendingCheckbox;
-
 	public void selectPendingVacations() {
 		pendingCheckbox.click();
 	}
 
-	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_APPROVEDCheckbox")
-	private WebElementFacade approvedCheckbox;
-
 	public void selectApprovedVacations() {
 		approvedCheckbox.click();
 	}
-
-	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_REJECTEDCheckbox")
-	private WebElementFacade rejectedCheckbox;
 
 	public void selectRejectedVacations() {
 		rejectedCheckbox.click();
