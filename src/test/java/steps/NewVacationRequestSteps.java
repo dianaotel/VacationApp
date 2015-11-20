@@ -29,24 +29,24 @@ public class NewVacationRequestSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void selectVacationWithoutPayment() {
-		newVacationRequestPage.vacationWithoutPayment();
-	}	
+	public void selectVacationType(String vacationType) {
+		newVacationRequestPage.chooseVacationType(vacationType);
+	}
 
 	@Step
+	public void addComment(String comment) {
+		newVacationRequestPage.addCommet(comment);
+	}
 
-	public void insertComment(String comment) {
-		newVacationRequestPage.addComment(comment);
-	}
-	
-	public void selectHoliday() {
-		newVacationRequestPage.holiday();
-	}
-	
 	@Step
-	public void selectSickLeave() {
-		newVacationRequestPage.sickLeave();
-	}	
+	public void addDurationDomain(String durationDomain) {
+		newVacationRequestPage.addDurationDomain(durationDomain);
+	}
+
+	@Step
+	public void addIntitutionName(String institutionName) {
+		newVacationRequestPage.addInstitutionName(institutionName);
+	}
 
 	@Step
 	public void saveVacationRequest() {
