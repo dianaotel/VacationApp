@@ -6,6 +6,8 @@ import java.util.Random;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 
+import com.headius.invokebinder.transform.Convert;
+
 import helpers.Constants;
 
 import net.serenitybdd.core.annotations.findby.By;
@@ -16,7 +18,10 @@ import net.thucydides.core.annotations.DefaultUrl;
 
 @DefaultUrl(Constants.NEW_VACATION_REQUEST_URL)
 public class NewVacationRequestPage extends PageObject {
-
+	
+	@FindBy(xpath="/html/body/div[4]/div[2]/div[2]/div/div/div/div/div/div/div/div/div/div[2]/div/div/div[2]/div[1]/b")
+	private WebElementFacade vacationDaysLeft;
+	
 	@FindBy(name = "startDate")
 	private WebElementFacade startDate;
 
@@ -82,6 +87,11 @@ public class NewVacationRequestPage extends PageObject {
 
 	@FindBy(css = "[class=portlet-msg-success]")
 	private WebElementFacade vacationRequestConfirmationMessage;
+		
+	public int getNumberOfVacationDaysLeft(){
+		int nrOfVacationDaysLeft=Integer.parseInt(vacationDaysLeft.getText());
+		return nrOfVacationDaysLeft;
+	}
 
 	public void startDate() {
 		startDate.click();
