@@ -32,14 +32,16 @@ public class NewVacationRequestTest {
 		loginStep.loginAsTester();
 		loginStep.signIn();
 
-		newVacationRequestSteps.setStartDate(20, "Feb", 2018);
-		newVacationRequestSteps.setEndDate(21, "Feb", 2018);
-		newVacationRequestSteps.selectVacationWithoutPayment();
-		newVacationRequestSteps.insertComment("Test Comment");
+		newVacationRequestSteps.setStartDate(10, "Feb", 2018);
+		newVacationRequestSteps.setEndDate(11, "Feb", 2018);
+		newVacationRequestSteps.selectVacationType("ConcediuIngrijireCopii");
+		newVacationRequestSteps.addDurationDomain("Test Domain");
+		newVacationRequestSteps.addIntitutionName("Test Institution");
+		newVacationRequestSteps.addComment("Test Comment");
 		newVacationRequestSteps.saveVacationRequest();
 		newVacationRequestSteps.confirmationMessage();
-		zimbraLoginSteps.goToZimbraLoginPage();
-		zimbraLoginSteps.loginAsPM();
+		//zimbraLoginSteps.goToZimbraLoginPage();
+		//zimbraLoginSteps.loginAsPM();
 		
 	}
 

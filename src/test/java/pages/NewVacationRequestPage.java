@@ -38,8 +38,35 @@ public class NewVacationRequestPage extends PageObject {
 	@FindBy(css = "[title~=medical]")
 	private WebElementFacade sickLeave;
 
-	@FindBy(css = "[title=Concediu special]")
-	private WebElementFacade concediuSpecial;
+	@FindBy(css = "input[id='_evovacation_WAR_EvoVacationportlet_type_CS']")
+	private WebElementFacade specialVacation;
+
+	@FindBy(css = "option[value='MARRIAGE']")
+	private WebElementFacade marriage;
+
+	@FindBy(css = "option[value='CHILD_BIRTH']")
+	private WebElementFacade childBirth;
+
+	@FindBy(css = "option[value='FUNERAL']")
+	private WebElementFacade funeral;
+
+	@FindBy(css = "option[value='OTHER']")
+	private WebElementFacade other;
+
+	@FindBy(css = "option[value='MATERNITY_SICK_LEAVE']")
+	private WebElementFacade prenatalPostNatal;
+
+	@FindBy(css = "input[id='_evovacation_WAR_EvoVacationportlet_type_ML']")
+	private WebElementFacade maternityLeave;
+
+	@FindBy(css = "option[value='CIC']")
+	private WebElementFacade ingrijireCopii;
+
+	@FindBy(css = "input[name='duration']")
+	private WebElementFacade durationDomainTextBox;
+
+	@FindBy(css = "input[name='institution']")
+	private WebElementFacade institutionTextBox;
 
 	@FindBy(css = ".optionalComment")
 	private WebElementFacade addCommentButton;
@@ -47,7 +74,7 @@ public class NewVacationRequestPage extends PageObject {
 	@FindBy(css = "[name=commentContent]")
 	private WebElementFacade commentBox;
 
-	@FindBy(css="[value=Save]")
+	@FindBy(css = "[value=Save]")
 	private WebElementFacade saveButton;
 
 	@FindBy(css = "[value=Cancel]")
@@ -68,37 +95,56 @@ public class NewVacationRequestPage extends PageObject {
 		createNewVacationRequestButton.click();
 	}
 
-	public void holiday() {
-		holiday.click();
-	}
-
-	public void vacationWithoutPayment() {
-		vacationWithoutPayment.click();
-	}
-
-	public void sickLeave() {
-		sickLeave.click();
-	}
-
-	public void addComment(String comment) {
-		addCommentButton.click();
-		commentBox.sendKeys(comment);
-	}
-
-	
-
 	public void saveVacationRequest() {
 		saveButton.click();
 	}
-
-
 
 	public void cancelVacationRequest() {
 		cancelButton.click();
 	}
 
-	
-	public void vacationRequestConfirmationMessage() {	
+	public void chooseVacationType(String vacationType) {
+		if (vacationType.contains("Holiday")) {
+			holiday.click();
+		} else if (vacationType.contains("Vacation without payment")) {
+			vacationWithoutPayment.click();
+		} else if (vacationType.contains("Sick Leave")) {
+			sickLeave.click();
+		} else if (vacationType.contains("Marriage")) {
+			specialVacation.click();
+			marriage.click();
+		} else if (vacationType.contains("Child Birth")) {
+			specialVacation.click();
+			childBirth.click();
+		} else if (vacationType.contains("Funeral")) {
+			specialVacation.click();
+			funeral.click();
+		} else if (vacationType.contains("Other")) {
+			specialVacation.click();
+			other.click();
+		} else if (vacationType.contains("Prenatal/Postnatal")) {
+			maternityLeave.click();
+			prenatalPostNatal.click();
+		} else if (vacationType.contains("ConcediuIngrijireCopii")) {
+			maternityLeave.click();
+			ingrijireCopii.click();
+		}
+	}
+
+	public void addCommet(String commentText) {
+		addCommentButton.click();
+		commentBox.sendKeys(commentText);
+	}
+
+	public void addDurationDomain(String durationDomain) {
+		durationDomainTextBox.sendKeys(durationDomain);
+	}
+
+	public void addInstitutionName(String institutionName) {
+		institutionTextBox.sendKeys(institutionName);
+	}
+
+	public void vacationRequestConfirmationMessage() {
 		Assert.assertTrue("Request was created",
 				element(vacationRequestConfirmationMessage).getText().contains("Your request completed successfully."));
 	}
