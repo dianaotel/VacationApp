@@ -9,7 +9,7 @@ import javax.mail.Store;
 import javax.mail.MessagingException;
 import javax.mail.NoSuchProviderException;
 
-public class DianaGmailConnecter {
+public class DianaGmailConnector {
 
 	public static void check(String host, String storeType, String user, String password) {
 		try {
