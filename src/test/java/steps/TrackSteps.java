@@ -44,13 +44,8 @@ public class TrackSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void clickMainBuildingCheckBox() {
-		trackPage.clickMainBuildingCheckBox();
-	}
-
-	@Step
-	public void clickDeltaBuildingCheckBox() {
-		trackPage.clickDeltaBuildingCheckBox();
+	public void setBulding(String buildingName) {
+		trackPage.setBuilding(buildingName);
 	}
 
 	@Step
@@ -61,12 +56,11 @@ public class TrackSteps extends ScenarioSteps {
 	@Step
 	public void clickAllDepartments() {
 		trackPage.clickAllDepartmentCheckBox();
-
 	}
 
 	@Step
-	public void clickQaDepartmentCheckBox() {
-		trackPage.clickQaDepartmentCheckBox();
+	public void setDepartment(String departmentName) {
+		trackPage.setDepartment(departmentName);
 	}
 
 	@Step

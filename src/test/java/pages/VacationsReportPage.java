@@ -37,7 +37,10 @@ public class VacationsReportPage extends PageObject {
 
 	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_reportFirstName")
 	private WebElementFacade fieldFirstName;
-
+	
+	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_searchButton")
+	private WebElementFacade searchButton;
+	
 	public void clickDropDownMonth() {
 		dropDownMonth.click();
 	}
@@ -77,11 +80,11 @@ public class VacationsReportPage extends PageObject {
 		}
 	}
 
-	public void selectApprovedStatus() {
+	public void selectApprovedStatusRadioButton() {
 		radioButtonApproved.click();
 	}
 
-	public void selectPendingStatus() {
+	public void selectPendingStatusRadioButton() {
 		radioButtonPending.click();
 	}
 
@@ -93,4 +96,9 @@ public class VacationsReportPage extends PageObject {
 		fieldLastName.type(lastName);
 		fieldFirstName.type(firstName);
 	}
+	
+	public void clickSearhButton() {
+		searchButton.click();
+	}
+	
 }
