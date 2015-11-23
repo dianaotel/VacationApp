@@ -3,7 +3,6 @@ package pages;
 import net.serenitybdd.core.annotations.findby.By;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
-import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.pages.PageObject;
 
 import java.util.List;
@@ -28,47 +27,23 @@ public class ViewVacationsPage extends PageObject {
 	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_futureVacationsCheckbox")
 	private WebElementFacade futureVacationsCheckbox;
 
-	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_applyButton")
-	private WebElementFacade applyButton;
-
-	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_evozonVacationsSearchContainerPageIteratorBottom_itemsPerPage")
-	private WebElementFacade itemsPerPage;
-
-	@FindBy(css = "tr.portlet-section-header.results-header")
-	private WebElementFacade tableFilters;
-
-	@FindBy(css = "a[href*='orderByCol=employee']")
-	private WebElementFacade orderByEmployee;
-
-	@FindBy(css = "a[href*='orderByCol=startDate']")
-	private WebElementFacade orderByStartDate;
-
-	@FindBy(css = "a[href*='orderByCol=endDate']")
-	private WebElementFacade orderByEndDate;
-
-	@FindBy(css = "a[href*='orderByCol=modifiedDate']")
-	private WebElementFacade orderByModifiedDate;
-
-	@FindBy(css = "a[href*='orderByCol=lastUpdate']")
-	private WebElementFacade orderByLastUpdatedBy;
-
-	@FindBy(css = "a[href*='orderByCol=assignee']")
-	private WebElementFacade orderByApprover;
-
-	@FindBy(css = "a[href*='orderByCol=daysNr']")
-	private WebElementFacade orderByDaysNumber;
-
-	@FindBy(css = "a[href*='orderByCol=type']")
-	private WebElementFacade orderByType;
-
-	@FindBy(css = "a[href*='orderByCol=status']")
-	private WebElementFacade orderByStatus;
-
 	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_viewVacationsLastName")
 	private WebElementFacade fieldLastName;
 
 	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_viewVacationsFirstName")
 	private WebElementFacade fieldFirstName;
+
+	@FindBy(css = "a[href*='orderByCol=employee']")
+	private WebElementFacade orderByEmployee;
+
+	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_applyButton")
+	private WebElementFacade applyButton;
+	
+	@FindBy(id = "align-left col-1 col-employee.name first valign-middle")
+	private WebElementFacade lastNameTableRow;
+
+	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_evozonVacationsSearchContainerPageIteratorBottom_itemsPerPage")
+	private WebElementFacade itemsPerPage;
 
 	public void selectRandomVacationType() {
 		element(vacationTypeCheckboxContainer).waitUntilVisible();
@@ -121,12 +96,13 @@ public class ViewVacationsPage extends PageObject {
 		futureVacationsCheckbox.click();
 	}
 
+	public void insertEmployeeName(String lastName, String firstName) {
+		fieldLastName.type(lastName);
+		fieldFirstName.type(firstName);
+	}
+	
 	public void applySelectedFilters() {
 		applyButton.click();
-	}
-
-	public void chooseNumberOfItemsPerPage() {
-		itemsPerPage.click();
 	}
 
 	public void orderTableByEmployee() {
@@ -138,41 +114,13 @@ public class ViewVacationsPage extends PageObject {
 				element(orderByEmployee).getText().contains("Employee"));
 	}
 
-	public void orderTableByStartDate() {
-		orderByStartDate.click();
+	public void checkIfSearchForTesterReportIsCorrect() {
+		Assert.assertTrue("Correct search for vacations report of existent employee",
+				element(lastNameTableRow).getText().contains(Constants.TESTER_LAST_NAME));
 	}
 
-	public void orderTableByEndDate() {
-		orderByEndDate.click();
-	}
-
-	public void orderTableByModifiedDate() {
-		orderByModifiedDate.click();
-	}
-
-	public void orderTableByLastUpdatedBy() {
-		orderByLastUpdatedBy.click();
-	}
-
-	public void orderTableByApprover() {
-		orderByApprover.click();
-	}
-
-	public void orderTableByDaysNumber() {
-		orderByDaysNumber.click();
-	}
-
-	public void orderTableByType() {
-		orderByType.click();
-	}
-
-	public void orderTableByStatus() {
-		orderByStatus.click();
-	}
-
-	public void insertEmployeeName(String lastName, String firstName) {
-		fieldLastName.type(lastName);
-		fieldFirstName.type(firstName);
+	public void chooseNumberOfItemsPerPage() {
+		itemsPerPage.click();
 	}
 
 }

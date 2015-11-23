@@ -44,13 +44,8 @@ public class TrackSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void clickMainBuildingCheckBox() {
-		trackPage.clickMainBuildingCheckBox();
-	}
-
-	@Step
-	public void clickDeltaBuildingCheckBox() {
-		trackPage.clickDeltaBuildingCheckBox();
+	public void setBulding(String buildingName) {
+		trackPage.setBuilding(buildingName);
 	}
 
 	@Step
@@ -61,12 +56,11 @@ public class TrackSteps extends ScenarioSteps {
 	@Step
 	public void clickAllDepartments() {
 		trackPage.clickAllDepartmentCheckBox();
-
 	}
 
 	@Step
-	public void clickQaDepartmentCheckBox() {
-		trackPage.clickQaDepartmentCheckBox();
+	public void setDepartment(String departmentName) {
+		trackPage.setDepartment(departmentName);
 	}
 
 	@Step
@@ -75,7 +69,7 @@ public class TrackSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void checkListIsSorter(String building, String department) {
+	public void checkListIsSorted(String building, String department) {
 		trackPage.checkListIsSorted(building, department);
 	}
 
@@ -102,14 +96,23 @@ public class TrackSteps extends ScenarioSteps {
 
 	@Step
 	public boolean compareLists(List<TrackTableModel> listaOrdonata, List<TrackTableModel> listaInitiala) {
-		for(TrackTableModel listaInitialaData :listaInitiala){
-			for(TrackTableModel listaOrdonataData : listaOrdonata){
-				if(listaOrdonataData.getEmployeeName().equals(listaInitialaData.getEmployeeName()))
+		for (TrackTableModel listaInitialaData : listaInitiala) {
+			for (TrackTableModel listaOrdonataData : listaOrdonata) {
+				if (listaOrdonataData.getEmployeeName().equals(listaInitialaData.getEmployeeName()))
 					return true;
 			}
 		}
-		
+
 		return false;
+	}
+
+	@Step
+	public void clickNextPageUntilTheLastPage() {
+		int clicksNumber = trackPage.getNumberOfPages();
+		for (int i = 0; i <= clicksNumber; i++) {
+			trackPage.clickNextPage();
+		}
+
 	}
 
 	// @Step

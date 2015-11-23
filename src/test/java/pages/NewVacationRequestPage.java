@@ -18,10 +18,10 @@ import net.thucydides.core.annotations.DefaultUrl;
 
 @DefaultUrl(Constants.NEW_VACATION_REQUEST_URL)
 public class NewVacationRequestPage extends PageObject {
-	
-	@FindBy(xpath="/html/body/div[4]/div[2]/div[2]/div/div/div/div/div/div/div/div/div/div[2]/div/div/div[2]/div[1]/b")
+
+	@FindBy(css = "#vacDaysLeft b")
 	private WebElementFacade vacationDaysLeft;
-	
+
 	@FindBy(name = "startDate")
 	private WebElementFacade startDate;
 
@@ -30,9 +30,6 @@ public class NewVacationRequestPage extends PageObject {
 
 	@FindBy(css = ".vacationType")
 	private WebElement vacationRadioButtonsContainer;
-
-	@FindBy(css = "a[href*='menuItem=new-request']")
-	private WebElementFacade createNewVacationRequestButton;
 
 	@FindBy(css = "[title~=odihna]")
 	private WebElementFacade holiday;
@@ -87,9 +84,10 @@ public class NewVacationRequestPage extends PageObject {
 
 	@FindBy(css = "[class=portlet-msg-success]")
 	private WebElementFacade vacationRequestConfirmationMessage;
-		
-	public int getNumberOfVacationDaysLeft(){
-		int nrOfVacationDaysLeft=Integer.parseInt(vacationDaysLeft.getText());
+
+	public String getNrOfFreeDays() {
+		element(vacationDaysLeft).waitUntilVisible();
+		String nrOfVacationDaysLeft = vacationDaysLeft.getText().trim();
 		return nrOfVacationDaysLeft;
 	}
 
@@ -99,10 +97,6 @@ public class NewVacationRequestPage extends PageObject {
 
 	public void endDate() {
 		endDate.click();
-	}
-
-	public void createNewVacationRequestTab() {
-		createNewVacationRequestButton.click();
 	}
 
 	public void saveVacationRequest() {
