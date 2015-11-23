@@ -31,6 +31,7 @@ public class ViewTesterVacationsTest {
 		viewVacationsSteps.insertTesterName();
 		viewVacationsSteps.applySelectedFilters();
 		viewVacationsSteps.searchForVacationsOfEmployee();
+		//viewVacationsSteps.checkIfSearchForTesterReportIsCorrect();
 	}
 
 }

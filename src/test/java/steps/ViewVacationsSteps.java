@@ -60,4 +60,10 @@ public class ViewVacationsSteps extends ScenarioSteps {
 	public void searchForVacationsOfEmployee() {
 		viewVacationsPage.searchForVacationsOfEmployee();
 	}
+	
+	@Step
+	public void checkIfSearchForTesterReportIsCorrect() {
+		viewVacationsPage.checkIfSearchForTesterReportIsCorrect();
+	}
+	
 }
