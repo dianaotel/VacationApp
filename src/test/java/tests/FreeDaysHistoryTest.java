@@ -20,15 +20,24 @@ public class FreeDaysHistoryTest {
 	LoginSteps loginSteps;
 	
 	@Test
-	public void verifyThatTypeIsCorrect() {
+	public void verifyThatOperationIsCorrect() {
 		loginSteps.goToLoginPage();
 		loginSteps.loginAsTester();
 		loginSteps.signIn();
 		
 		freeDaysHistorySteps.goToFreeDaysHistoryPage();
+		freeDaysHistorySteps.addedDays();
+		freeDaysHistorySteps.applyButton();
+		freeDaysHistorySteps.verifyThatOperationIsCorrect("Added days");
+	}
+	
+	@Test
+	public void verifyThatTypeIsCorrect() {
 		freeDaysHistorySteps.vacationCheckbox();
+		freeDaysHistorySteps.applyButton();
+		freeDaysHistorySteps.addedDays();
 		freeDaysHistorySteps.applyButton();
 		freeDaysHistorySteps.verifyThatTypeIsCorrect("Vacation Days");
 	
-		}
+		}	
 }

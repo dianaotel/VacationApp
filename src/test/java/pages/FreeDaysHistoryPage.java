@@ -132,9 +132,16 @@ public class FreeDaysHistoryPage extends PageObject {
 	}
 	
 	public void verifyThatTypeIsCorrect(String type) {
-		  List<WebElement> rows = getDriver().findElements(By.cssSelector("table tbody tr td:nth-child(4) a"));
+		  List<WebElement> rows = getDriver().findElements(By.cssSelector("table tbody tr td:nth-child(2) a"));
 		  for (WebElement row : rows) {
 		   Assert.assertTrue("The row does not contains the expected type", row.getText().contentEquals(type));
+		  }
+		 }
+	
+	public void verifyThatOperationIsCorrect(String description) {
+		  List<WebElement> rows = getDriver().findElements(By.cssSelector("table tbody tr td:nth-child(5) a"));
+		  for (WebElement row : rows) {
+		   Assert.assertTrue("The row does not contains the expected type", row.getText().contentEquals(description));
 		  }
 		 }
 }
