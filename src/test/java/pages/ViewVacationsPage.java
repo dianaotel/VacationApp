@@ -14,7 +14,6 @@ import org.openqa.selenium.WebElement;
 
 import helpers.Constants;
 
-@DefaultUrl(Constants.VIEW_VACATIONS_URL)
 public class ViewVacationsPage extends PageObject {
 
 	@FindBy(css = "div.aui-column-content-first.column-three-content")

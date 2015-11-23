@@ -1,20 +1,16 @@
 package pages;
 
-import net.serenitybdd.core.annotations.findby.By;
-import net.serenitybdd.core.annotations.findby.FindBy;
-import net.serenitybdd.core.pages.WebElementFacade;
-import net.thucydides.core.annotations.DefaultUrl;
-import net.thucydides.core.pages.PageObject;
-
 import java.util.List;
 import java.util.Random;
 
 import org.junit.Assert;
-import org.openqa.selenium.WebElement;
+
+import net.serenitybdd.core.annotations.findby.FindBy;
+import net.serenitybdd.core.pages.WebElementFacade;
+import net.thucydides.core.pages.PageObject;
 
 import helpers.Constants;
 
-@DefaultUrl(Constants.VACATIONS_REPORT_URL)
 public class VacationsReportPage extends PageObject {
 
 	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_exportMonth")
@@ -37,47 +33,35 @@ public class VacationsReportPage extends PageObject {
 
 	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_reportFirstName")
 	private WebElementFacade fieldFirstName;
-	
+
 	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_searchButton")
 	private WebElementFacade searchButton;
 	
+	@FindBy(css = ".align-left.col-1.col-last-name.first.valign-middle")
+	private WebElementFacade lastNameTableRow;
+
 	public void clickDropDownMonth() {
 		dropDownMonth.click();
 	}
 
 	public void selectRandomMonth() {
 		element(dropDownMonth).waitUntilVisible();
-		List<WebElement> monthList = dropDownMonth
-				.findElements(By.id("_evovacation_WAR_EvoVacationportlet_exportMonth"));
+		List<String> monthList = element(dropDownMonth).getSelectOptions();
 
-		if (monthList.size() > 0) {
-			Random rand = new Random();
-			int nowRand = rand.nextInt(monthList.size());
+		Random rand = new Random();
+		int nowRand = rand.nextInt(monthList.size());
 
-			System.out.println("Rand: " + nowRand);
-			System.out.println("monthList.size(): " + monthList.size());
-			monthList.get(Integer.valueOf(nowRand))
-					.findElement(By.id("_evovacation_WAR_EvoVacationportlet_exportMonth")).click();
-		}
-	}
-
-	public void clickDropDownYear() {
-		dropDownYear.click();
+		element(dropDownMonth).selectByVisibleText(monthList.get(nowRand));
 	}
 
 	public void selectRandomYear() {
 		element(dropDownYear).waitUntilVisible();
-		List<WebElement> yearList = dropDownMonth.findElements(By.id("_evovacation_WAR_EvoVacationportlet_exportYear"));
+		List<String> yearList = element(dropDownYear).getSelectOptions();
 
-		if (yearList.size() > 0) {
-			Random rand = new Random();
-			int nowRand = rand.nextInt(yearList.size());
+		Random rand = new Random();
+		int nowRand = rand.nextInt(yearList.size());
 
-			System.out.println("Rand: " + nowRand);
-			System.out.println("yearList.size(): " + yearList.size());
-			yearList.get(Integer.valueOf(nowRand)).findElement(By.id("_evovacation_WAR_EvoVacationportlet_exportYear"))
-					.click();
-		}
+		element(dropDownYear).selectByVisibleText(yearList.get(nowRand));
 	}
 
 	public void selectApprovedStatusRadioButton() {
@@ -96,9 +80,14 @@ public class VacationsReportPage extends PageObject {
 		fieldLastName.type(lastName);
 		fieldFirstName.type(firstName);
 	}
-	
+
 	public void clickSearhButton() {
 		searchButton.click();
 	}
 	
+	public void checkIfSearchForPmsReportIsCorrect() {
+		Assert.assertTrue("Correct search for vacations report of existent employee",
+				element(lastNameTableRow).getText().contains(Constants.PM_LAST_NAME));
+	}
+
 }

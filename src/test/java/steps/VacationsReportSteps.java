@@ -18,6 +18,7 @@ public class VacationsReportSteps extends ScenarioSteps {
 	
 	@Step
 	public void selectRandomMonth() {
+		vacationsReportPage.clickDropDownMonth();
 		vacationsReportPage.selectRandomMonth();
 	}
 	
@@ -64,6 +65,11 @@ public class VacationsReportSteps extends ScenarioSteps {
 	@Step
 	public void clickSearhButton() {
 		vacationsReportPage.clickSearhButton();
+	}
+	
+	@Step
+	public void checkIfSearchForPmsReportIsCorrect() {
+		vacationsReportPage.checkIfSearchForPmsReportIsCorrect();
 	}
 	
 }
