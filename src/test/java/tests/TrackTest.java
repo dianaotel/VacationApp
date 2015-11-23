@@ -1,14 +1,11 @@
 package tests;
 
-import java.util.List;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
-import helpers.TrackTableModel;
+import junit.framework.TestCase;
 import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
-import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.junit.annotations.UseTestDataFrom;
@@ -16,9 +13,8 @@ import steps.LoginSteps;
 import steps.TrackSteps;
 
 @RunWith(SerenityParameterizedRunner.class)
-@UseTestDataFrom(separator = ';', value = "resources/BuldingsDepartments.csv")
-
-public class TrackTest {
+@UseTestDataFrom(separator = ';', value = "resources/TrackData.csv")
+public class TrackTest extends TestCase{
 
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
@@ -29,7 +25,7 @@ public class TrackTest {
 	@Steps
 	public TrackSteps trackSteps;
 	
-	public String building, department;
+	public String startDay,startMonth,startYear,endDay,endMonth,endYear,building,department;
 
 	@Test
 	public void trackTest() {
@@ -37,25 +33,20 @@ public class TrackTest {
 		loginStep.loginAsTester();
 		loginStep.signIn();
 
-		trackSteps.clickTrackTab();
-		trackSteps.setStartDate(16, "Nov", 2015);
-		trackSteps.setEndDate(30, "Nov", 2015);
-		trackSteps.clickBuildingsDropDown();
-		trackSteps.setBulding(building);
-		trackSteps.setBulding(building);
-		trackSteps.clickBuildingsDropDown();
-		trackSteps.clickDepartmentsDropDown();
-		trackSteps.clickAllDepartments();
-		trackSteps.setDepartment(department);
+		trackSteps.clickTrackTab();					
+		
+		trackSteps.setData(startDay, startMonth, startYear, endDay, endMonth, endYear, building, department);
 		trackSteps.clickApply();
-		/*  trackSteps.checkListIsSorted("Main Building", "QA Department");
-		List<TrackTableModel> listaInitiala = trackSteps.grabVacationList();
-		trackSteps.sortByEmployeeName();
-		List<TrackTableModel> listaOrdonata = trackSteps.grabVacationList();
-		trackSteps.compareLists(listaOrdonata, listaInitiala);
-		trackSteps.nrOfVacationOnPage(5);
-		trackSteps.clickNextPageUntilTheLastPage();
-		// trackSteps.CheckNameListIsSorted();   */
+		/*
+		 * trackSteps.checkListIsSorted("Main Building", "QA Department");
+		 * List<TrackTableModel> listaInitiala = trackSteps.grabVacationList();
+		 * trackSteps.sortByEmployeeName(); List<TrackTableModel> listaOrdonata
+		 * = trackSteps.grabVacationList();
+		 * trackSteps.compareLists(listaOrdonata, listaInitiala);
+		 * trackSteps.nrOfVacationOnPage(5);
+		 * trackSteps.clickNextPageUntilTheLastPage(); //
+		 * trackSteps.CheckNameListIsSorted();
+		 */
 	}
 
 }
