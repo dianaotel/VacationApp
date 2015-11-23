@@ -3,7 +3,6 @@ package pages;
 import net.serenitybdd.core.annotations.findby.By;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
-import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.pages.PageObject;
 
 import java.util.List;
@@ -39,6 +38,9 @@ public class ViewVacationsPage extends PageObject {
 
 	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_applyButton")
 	private WebElementFacade applyButton;
+	
+	@FindBy(id = "align-left col-1 col-employee.name first valign-middle")
+	private WebElementFacade lastNameTableRow;
 
 	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_evozonVacationsSearchContainerPageIteratorBottom_itemsPerPage")
 	private WebElementFacade itemsPerPage;
@@ -98,6 +100,10 @@ public class ViewVacationsPage extends PageObject {
 		fieldLastName.type(lastName);
 		fieldFirstName.type(firstName);
 	}
+	
+	public void applySelectedFilters() {
+		applyButton.click();
+	}
 
 	public void orderTableByEmployee() {
 		orderByEmployee.click();
@@ -108,8 +114,9 @@ public class ViewVacationsPage extends PageObject {
 				element(orderByEmployee).getText().contains("Employee"));
 	}
 
-	public void applySelectedFilters() {
-		applyButton.click();
+	public void checkIfSearchForTesterReportIsCorrect() {
+		Assert.assertTrue("Correct search for vacations report of existent employee",
+				element(lastNameTableRow).getText().contains(Constants.TESTER_LAST_NAME));
 	}
 
 	public void chooseNumberOfItemsPerPage() {

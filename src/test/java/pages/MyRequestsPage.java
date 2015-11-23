@@ -13,6 +13,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import helpers.Constants;
 import helpers.MyRequestTableModel;
+import java.util.Arrays;
 
 @DefaultUrl(Constants.MY_REQUESTS_PAGE_URL)
 public class MyRequestsPage extends PageObject {
@@ -167,7 +168,43 @@ public class MyRequestsPage extends PageObject {
 			Assert.assertTrue("The row does not contain the expected status", row.getText().contentEquals(status));
 		}
 	}
+	
+	
+	public List<MyRequestTableModel> grabSimpleResultsList(){
+		List<MyRequestTableModel> resultList = new ArrayList<MyRequestTableModel>();
+		element(vacationListContainer).waitUntilVisible();
+		List<WebElement> vacationEntryList = vacationListContainer
+				.findElements(By.cssSelector("tr.results-row:not(.lfr-template)"));
+		
+		for (WebElement elementNow : vacationEntryList) {
 
+			MyRequestTableModel entryNow = new MyRequestTableModel();
+			
+			String startDate = elementNow.findElement(By.cssSelector("td[class*='start.date']")).getText();
+			String endDate = elementNow.findElement(By.cssSelector("td[class*='end.date']")).getText();
+			String daysNumber = elementNow.findElement(By.cssSelector("td[class*='day.number']")).getText();
+			String type = elementNow.findElement(By.cssSelector("td[class*='header.type']")).getText();
+			String lastUpdated = elementNow.findElement(By.cssSelector("td[class*='header.type']")).getText();
+			String status = elementNow.findElement(By.cssSelector("td[class*='header.status']")).getText();
+			
+			entryNow.setStartDate(startDate);
+			entryNow.setEndDate(endDate);
+			entryNow.setDaysNumber(daysNumber);
+			entryNow.setType(type);
+			entryNow.setLastUpdatedBy(lastUpdated);
+			entryNow.setStatus(status);
+			
+			resultList.add(entryNow);
+			
+		}
+		
+		
+		return resultList;
+	}
+
+	
+	
+	
 	public List<MyRequestTableModel> grabResultsList() {
 
 		List<MyRequestTableModel> resultList = new ArrayList<MyRequestTableModel>();
@@ -212,11 +249,5 @@ public class MyRequestsPage extends PageObject {
 			e.printStackTrace();
 		}
 		return date;
-	}
-	
-	public void verifyThatDaysNumberIsCorrect(String daysnumber) {
-	List<WebElement> rows = getDriver().findElements(By.cssSelector("table tbody tr td:nth-child(3) a"));
-		int[] daysNumberArray = new int[]{1,2,3,4,5};
-	}
-		
+	}		
 }
