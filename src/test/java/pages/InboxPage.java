@@ -21,6 +21,9 @@ public class InboxPage extends PageObject {
 	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_multipleRejectButton")
 	private WebElementFacade rejectButton;
 
+	@FindBy(css = ".portlet-msg-success")
+	private WebElementFacade approveOrRejectRequestConfirmationMessage;
+
 	public void approveVacationRequest() {
 		checkBox.click();
 		approveButton.click();
@@ -30,10 +33,7 @@ public class InboxPage extends PageObject {
 		checkBox.click();
 		rejectButton.click();
 	}
-
-	@FindBy(css = ".portlet-msg-success")
-	private WebElementFacade approveOrRejectRequestConfirmationMessage;
-
+	
 	public void checkConfirmationMessageForApprovedRequest() {
 		Assert.assertTrue("Request was approved",
 				element(approveOrRejectRequestConfirmationMessage).getText().contains("Your request completed successfully."));

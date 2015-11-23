@@ -179,17 +179,10 @@ public class TrackPage extends PageObject {
 		}
 
 		return resultList;
-	}	
+	}
 
 	public void employeeName() {
 		employeeName.click();
 	}
-	
-	/*public void tralala() {
-
-		for (TrackTableModel object : grabResultsList()) {
-			System.out.println(object.getStartDate());
-		}
-	}*/
 
 }

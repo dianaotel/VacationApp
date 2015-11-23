@@ -17,6 +17,21 @@ public class ViewVacationsSteps extends ScenarioSteps {
 	}
 
 	@Step
+	public void selectRandomVacationType() {
+		viewVacationsPage.selectRandomVacationType();
+	}
+	
+	@Step
+	public void selectRandomNumberOfDays() {
+		viewVacationsPage.selectRandomNumberOfDays();
+	}
+	
+	@Step
+	public void selectRandomVacationStatus() {
+		viewVacationsPage.selectRandomVacationStatus();
+	}
+	
+	@Step
 	public void insertEmployeeName(String lastName, String firstName) {
 		viewVacationsPage.insertEmployeeName(lastName, firstName);
 	}
