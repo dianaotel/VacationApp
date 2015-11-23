@@ -23,7 +23,7 @@ public class CheckVacationsReportsTest {
 	public VacationsReportSteps vacationsReportSteps;
 
 	@Test
-	public void viewVacationsRandomFilterTest() {
+	public void exportVacationsRandomFilterTest() {
 		loginSteps.goToLoginPage();
 		loginSteps.loginAsDM();
 		loginSteps.signIn();
@@ -31,8 +31,13 @@ public class CheckVacationsReportsTest {
 		vacationsReportSteps.selectRandomMonth();
 		vacationsReportSteps.selectRandomYear();
 		vacationsReportSteps.selectApprovedStatusRadioButton();
+	}
+	
+	@Test
+	public void viewPmsVacationsReport() {
 		vacationsReportSteps.insertPMName();
 		vacationsReportSteps.clickSearhButton();
+		vacationsReportSteps.checkIfSearchForPmsReportIsCorrect();
 	}
 	
 }

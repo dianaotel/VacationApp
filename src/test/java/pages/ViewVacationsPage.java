@@ -14,7 +14,6 @@ import org.openqa.selenium.WebElement;
 
 import helpers.Constants;
 
-@DefaultUrl(Constants.VIEW_VACATIONS_URL)
 public class ViewVacationsPage extends PageObject {
 
 	@FindBy(css = "div.aui-column-content-first.column-three-content")
@@ -29,47 +28,20 @@ public class ViewVacationsPage extends PageObject {
 	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_futureVacationsCheckbox")
 	private WebElementFacade futureVacationsCheckbox;
 
-	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_applyButton")
-	private WebElementFacade applyButton;
-
-	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_evozonVacationsSearchContainerPageIteratorBottom_itemsPerPage")
-	private WebElementFacade itemsPerPage;
-
-	@FindBy(css = "tr.portlet-section-header.results-header")
-	private WebElementFacade tableFilters;
-
-	@FindBy(css = "a[href*='orderByCol=employee']")
-	private WebElementFacade orderByEmployee;
-
-	@FindBy(css = "a[href*='orderByCol=startDate']")
-	private WebElementFacade orderByStartDate;
-
-	@FindBy(css = "a[href*='orderByCol=endDate']")
-	private WebElementFacade orderByEndDate;
-
-	@FindBy(css = "a[href*='orderByCol=modifiedDate']")
-	private WebElementFacade orderByModifiedDate;
-
-	@FindBy(css = "a[href*='orderByCol=lastUpdate']")
-	private WebElementFacade orderByLastUpdatedBy;
-
-	@FindBy(css = "a[href*='orderByCol=assignee']")
-	private WebElementFacade orderByApprover;
-
-	@FindBy(css = "a[href*='orderByCol=daysNr']")
-	private WebElementFacade orderByDaysNumber;
-
-	@FindBy(css = "a[href*='orderByCol=type']")
-	private WebElementFacade orderByType;
-
-	@FindBy(css = "a[href*='orderByCol=status']")
-	private WebElementFacade orderByStatus;
-
 	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_viewVacationsLastName")
 	private WebElementFacade fieldLastName;
 
 	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_viewVacationsFirstName")
 	private WebElementFacade fieldFirstName;
+
+	@FindBy(css = "a[href*='orderByCol=employee']")
+	private WebElementFacade orderByEmployee;
+
+	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_applyButton")
+	private WebElementFacade applyButton;
+
+	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_evozonVacationsSearchContainerPageIteratorBottom_itemsPerPage")
+	private WebElementFacade itemsPerPage;
 
 	public void selectRandomVacationType() {
 		element(vacationTypeCheckboxContainer).waitUntilVisible();
@@ -122,12 +94,9 @@ public class ViewVacationsPage extends PageObject {
 		futureVacationsCheckbox.click();
 	}
 
-	public void applySelectedFilters() {
-		applyButton.click();
-	}
-
-	public void chooseNumberOfItemsPerPage() {
-		itemsPerPage.click();
+	public void insertEmployeeName(String lastName, String firstName) {
+		fieldLastName.type(lastName);
+		fieldFirstName.type(firstName);
 	}
 
 	public void orderTableByEmployee() {
@@ -139,41 +108,12 @@ public class ViewVacationsPage extends PageObject {
 				element(orderByEmployee).getText().contains("Employee"));
 	}
 
-	public void orderTableByStartDate() {
-		orderByStartDate.click();
+	public void applySelectedFilters() {
+		applyButton.click();
 	}
 
-	public void orderTableByEndDate() {
-		orderByEndDate.click();
-	}
-
-	public void orderTableByModifiedDate() {
-		orderByModifiedDate.click();
-	}
-
-	public void orderTableByLastUpdatedBy() {
-		orderByLastUpdatedBy.click();
-	}
-
-	public void orderTableByApprover() {
-		orderByApprover.click();
-	}
-
-	public void orderTableByDaysNumber() {
-		orderByDaysNumber.click();
-	}
-
-	public void orderTableByType() {
-		orderByType.click();
-	}
-
-	public void orderTableByStatus() {
-		orderByStatus.click();
-	}
-
-	public void insertEmployeeName(String lastName, String firstName) {
-		fieldLastName.type(lastName);
-		fieldFirstName.type(firstName);
+	public void chooseNumberOfItemsPerPage() {
+		itemsPerPage.click();
 	}
 
 }

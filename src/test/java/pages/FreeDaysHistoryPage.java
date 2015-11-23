@@ -4,15 +4,10 @@ import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.pages.PageObject;
-
 import java.util.List;
-
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-
-import helpers.Constants;
-
 import helpers.Constants;
 
 @DefaultUrl(Constants.FREE_DAYS_HISTORY_URL)
@@ -132,9 +127,16 @@ public class FreeDaysHistoryPage extends PageObject {
 	}
 	
 	public void verifyThatTypeIsCorrect(String type) {
-		  List<WebElement> rows = getDriver().findElements(By.cssSelector("table tbody tr td:nth-child(4) a"));
+		  List<WebElement> rows = getDriver().findElements(By.cssSelector("table tbody tr td:nth-child(2) a"));
 		  for (WebElement row : rows) {
 		   Assert.assertTrue("The row does not contains the expected type", row.getText().contentEquals(type));
+		  }
+		 }
+	
+	public void verifyThatOperationIsCorrect(String description) {
+		  List<WebElement> rows = getDriver().findElements(By.cssSelector("table tbody tr td:nth-child(5) a"));
+		  for (WebElement row : rows) {
+		   Assert.assertTrue("The row does not contains the expected type", row.getText().contentEquals(description));
 		  }
 		 }
 }

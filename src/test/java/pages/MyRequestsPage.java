@@ -160,6 +160,13 @@ public class MyRequestsPage extends PageObject {
 			Assert.assertTrue("The row does not contain the expected type", row.getText().contentEquals(type));
 		}
 	}
+	
+	public void verifyThatStatusIsCorrect(String status) {
+		List<WebElement> rows = getDriver().findElements(By.cssSelector("table tbody tr td:nth-child(6) a"));
+		for (WebElement row : rows) {
+			Assert.assertTrue("The row does not contain the expected status", row.getText().contentEquals(status));
+		}
+	}
 
 	public List<MyRequestTableModel> grabResultsList() {
 
@@ -187,7 +194,7 @@ public class MyRequestsPage extends PageObject {
 		}
 		return resultList;
 	}
-
+	
 	public void printDate() {
 
 		System.out.println("This is the date " + getDate("12/09/2000"));
@@ -206,4 +213,10 @@ public class MyRequestsPage extends PageObject {
 		}
 		return date;
 	}
+	
+	public void verifyThatDaysNumberIsCorrect(String daysnumber) {
+	List<WebElement> rows = getDriver().findElements(By.cssSelector("table tbody tr td:nth-child(3) a"));
+		int[] daysNumberArray = new int[]{1,2,3,4,5};
+	}
+		
 }

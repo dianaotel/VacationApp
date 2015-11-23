@@ -28,8 +28,18 @@ public class FreeDaysHistorySteps extends ScenarioSteps {
 	}
 	
 	@Step
-	public void verifyThatTypeIsCorrect(String holiday){
-		freeDaysHistoryPage.verifyThatTypeIsCorrect(holiday);
+	public void verifyThatTypeIsCorrect(String vacationdays){
+		freeDaysHistoryPage.verifyThatTypeIsCorrect(vacationdays);
+	}
+	
+	@Step
+	public void addedDays() {
+		freeDaysHistoryPage.addedDaysCheckbox();
+	}
+	
+	@Step
+	public void verifyThatOperationIsCorrect(String addeddays){
+		freeDaysHistoryPage.verifyThatOperationIsCorrect(addeddays);
 	}
 }
 
