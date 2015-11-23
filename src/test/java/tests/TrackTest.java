@@ -32,8 +32,8 @@ public class TrackTest {
 		loginStep.signIn();
 
 		trackSteps.clickTrackTab();
-		trackSteps.setStartDate(24, "Nov", 2015);
-		trackSteps.setEndDate(25, "Nov", 2015);
+		trackSteps.setStartDate(16, "Nov", 2015);
+		trackSteps.setEndDate(30, "Nov", 2015);
 		trackSteps.clickBuildingsDropDown();
 		trackSteps.clickMainBuildingCheckBox();
 		trackSteps.clickMainBuildingCheckBox();		
@@ -42,14 +42,14 @@ public class TrackTest {
 		trackSteps.clickAllDepartments();
 		trackSteps.clickQaDepartmentCheckBox();
 		trackSteps.clickApply();
-		trackSteps.checkListIsSorter("Main Building", "QA Department");
+		trackSteps.checkListIsSorted("Main Building", "QA Department");
 		List<TrackTableModel> listaInitiala = trackSteps.grabVacationList();
 		trackSteps.sortByEmployeeName();
 		List<TrackTableModel> listaOrdonata = trackSteps.grabVacationList();
 		trackSteps.compareLists(listaOrdonata, listaInitiala);
-
-		// trackSteps.NrOfVacationOnPage(5);
-		// trackSteps.CheckNameListIsSorted();
+		trackSteps.nrOfVacationOnPage(5);
+		trackSteps.clickNextPageUntilTheLastPage();
+		//trackSteps.CheckNameListIsSorted();
 	}
 
 }

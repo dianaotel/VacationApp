@@ -16,6 +16,23 @@ public class VacationHomePage extends PageObject {
 	@FindBy(css = "a[href*='menuItem=view-vacations']")
 	private WebElementFacade viewVacationsButton;
 
+	@FindBy(css = "a[href*='menuItem=new-request']")
+	private WebElementFacade createNewVacationRequestButton;
+
+	@FindBy(css = "a[href*='menuItem=my-free-days']")
+	private WebElementFacade myFreeDaysButton;
+	
+	@FindBy(css="a[href*='menuItem=vacation-tracker']")
+	private WebElementFacade trackButton;
+	
+	public void goToMyFreeDays(){
+		myFreeDaysButton.click();
+	}
+
+	public void createNewVacationRequestTab() {
+		createNewVacationRequestButton.click();
+	}
+
 	public void goToInbox() {
 		inboxButton.click();
 	}
@@ -23,4 +40,5 @@ public class VacationHomePage extends PageObject {
 	public void goToViewVacations() {
 		viewVacationsButton.click();
 	}
+
 }

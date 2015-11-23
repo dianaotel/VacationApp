@@ -17,7 +17,7 @@ public class NewVacationRequestSteps extends ScenarioSteps {
 
 	@Step
 	public void setStartDate(int day, String month, int year) {
-		newVacationRequestPage.createNewVacationRequestTab();
+		vacationHomePage.createNewVacationRequestTab();
 		newVacationRequestPage.startDate();
 		datePickerPage.setDate(day, month, year);
 	}

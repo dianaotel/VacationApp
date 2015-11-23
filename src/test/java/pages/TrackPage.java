@@ -81,6 +81,25 @@ public class TrackPage extends PageObject {
 	@FindBy(css = "#_evovacation_WAR_EvoVacationportlet_evozonVacationsSearchContainer_col-employee-name > span > a")
 	private WebElementFacade employeeName;
 
+	@FindBy(css = "[class='aui-paginator-link aui-paginator-next-link']")
+	private WebElementFacade nextPageButton;
+
+	@FindBy(css = "[class='aui-paginator-current-page-report aui-paginator-total']")
+	private WebElementFacade pageRow;
+
+	public int getNumberOfPages() {
+		int totalPagesNumber;
+		String nrOfPages;
+		nrOfPages = pageRow.getText().toString().split("of ")[1].replace(')', ' ').split(" ")[0];
+		totalPagesNumber = Integer.parseInt(nrOfPages);
+		return totalPagesNumber;
+	}
+
+	public void clickNextPage() {
+		element(nextPageButton).waitUntilVisible();
+		nextPageButton.click();
+	}
+
 	public void trackerStartDate() {
 		trackerStartDate.click();
 	}
@@ -179,17 +198,17 @@ public class TrackPage extends PageObject {
 		}
 
 		return resultList;
-	}	
+	}
 
 	public void employeeName() {
 		employeeName.click();
 	}
-	
-	/*public void tralala() {
 
-		for (TrackTableModel object : grabResultsList()) {
-			System.out.println(object.getStartDate());
-		}
-	}*/
+	/*
+	 * public void tralala() {
+	 * 
+	 * for (TrackTableModel object : grabResultsList()) {
+	 * System.out.println(object.getStartDate()); } }
+	 */
 
 }

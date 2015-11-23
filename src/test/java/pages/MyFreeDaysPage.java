@@ -8,16 +8,15 @@ import net.thucydides.core.pages.PageObject;
 
 @DefaultUrl(Constants.MY_FREE_DAYS_URL)
 public class MyFreeDaysPage extends PageObject {
-	
+
 	NewVacationRequestPage newVacationRequestPage;
 
-	@FindBy(xpath = "/html/body/div[4]/div[2]/div[2]/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div[3]/div[2]/div[1]/table/tbody/tr[9]/td[2]")
-	private WebElementFacade freeDaysNr;
+	@FindBy(css = "div[id='2015'] .section-result > td:last-child")
+	private WebElementFacade freeDaysNrTextField;
 
-	public boolean isNrOfFreeDaysEqual() {
-		if (Integer.parseInt(freeDaysNr.getText()) == newVacationRequestPage.getNumberOfVacationDaysLeft()) {
-			return true;
-		}
-		return false;
+	public String getNrOfFreeDays() {
+		element(freeDaysNrTextField).waitUntilVisible();
+		String nrOfVacationDaysLeft = freeDaysNrTextField.getText().trim();
+		return nrOfVacationDaysLeft;
 	}
 }
