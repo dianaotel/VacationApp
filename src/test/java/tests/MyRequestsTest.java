@@ -5,15 +5,9 @@ import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 import steps.LoginSteps;
 import steps.MyRequestsSteps;
-
-import java.util.List;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
-
-import helpers.MyRequestTableModel;
-import helpers.PrintUtils;
 
 @RunWith(SerenityRunner.class)
 public class MyRequestsTest {
@@ -30,11 +24,31 @@ public class MyRequestsTest {
 
 		myRequestSteps.holidayCheckbox();
 		myRequestSteps.applyButton();
-		myRequestSteps.futureVacationsCheckbox();
+		myRequestSteps.pendingCheckbox();
 		myRequestSteps.applyButton();
 		myRequestSteps.verifyThatTypeIsCorrect("Holiday");
 	}
+	
+	@Test
+	public void verifyThatStatusIsCorrect() {
 
+		myRequestSteps.pendingCheckbox();
+		myRequestSteps.applyButton();
+		myRequestSteps.futureVacationsCheckbox();
+		myRequestSteps.applyButton();
+		myRequestSteps.verifyThatStatusIsCorrect("Pending");
+	}
+
+//	@Test
+//	public void verifiyThatDaysNumberIsCorrect() {
+		
+//		myRequestSteps.fifthCheckbox();
+//		myRequestSteps.applyButton();
+//		myRequestSteps.holidayCheckbox();
+//		myRequestSteps.applyButton();
+		
+//	}
+	
 	@Test
 	public void verifyVacationsInFuture() {
 

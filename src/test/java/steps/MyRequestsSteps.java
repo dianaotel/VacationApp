@@ -3,10 +3,6 @@ package steps;
 import pages.LoginPage;
 import pages.MyRequestsPage;
 import pages.VacationHomePage;
-
-import java.util.List;
-
-import helpers.MyRequestTableModel;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 
@@ -35,7 +31,16 @@ public class MyRequestsSteps extends ScenarioSteps {
 	public void verifyThatTypeIsCorrect(String holiday) {
 		myRequestsPage.verifyThatTypeIsCorrect(holiday);
 	}
-
+	
+	public void pendingCheckbox() {
+		myRequestsPage.pendingCheckbox();
+	}
+	
+	@Step
+	public void verifyThatStatusIsCorrect(String pending ) {
+		myRequestsPage.verifyThatStatusIsCorrect(pending);
+	}
+	
 	@Step
 	public void grabVacationList() {
 		myRequestsPage.grabResultsList();
@@ -45,5 +50,10 @@ public class MyRequestsSteps extends ScenarioSteps {
 	@Step
 	public void futureVacationsCheckbox() {
 		myRequestsPage.futureVacationsCheckbox();
+	}
+	
+	@Step
+	public void fifthCheckbox() {
+		myRequestsPage.oneToFiveCheckbox();
 	}
 }
