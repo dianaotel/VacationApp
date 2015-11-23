@@ -36,20 +36,72 @@ public class TrackPage extends PageObject {
 	@FindBy(css = "#departments dl dt div.hida")
 	private WebElementFacade departmentsDropDown;
 
-	@FindBy(css = "input[value='Main Building']")
-	private WebElementFacade mainBuildingCheckBox;
+	// Departments list:
 
 	@FindBy(css = ".col-department.valign-middle")
 	private List<WebElementFacade> departmentList;
-
-	@FindBy(css = ".col-building.valign-middle")
-	private List<WebElementFacade> buildingList;
 
 	@FindBy(css = "input[id='_evovacation_WAR_EvoVacationportlet_departmentsALLCheckbox']")
 	private WebElementFacade allDepartmentsCheckBox;
 
 	@FindBy(css = "input[id='_evovacation_WAR_EvoVacationportlet_QA DepartmentCheckbox']")
 	private WebElementFacade qaDepartmentCheckBox;
+
+	@FindBy(css = "input[id='_evovacation_WAR_EvoVacationportlet_.Net DepartmentCheckbox']")
+	private WebElementFacade dotNetDepartmentCheckBox;
+
+	@FindBy(css = "input[id='_evovacation_WAR_EvoVacationportlet_Accounting DepartmentCheckbox']")
+	private WebElementFacade accountingDepartmentCheckBox;
+
+	@FindBy(css = "input[id='_evovacation_WAR_EvoVacationportlet_Admin DepartmentCheckbox']")
+	private WebElementFacade adminDepartmentCheckBox;
+
+	@FindBy(css = "input[id='_evovacation_WAR_EvoVacationportlet_DM DepartmentCheckbox']")
+	private WebElementFacade dmDepartmentCheckBox;
+
+	@FindBy(css = "input[id='_evovacation_WAR_EvoVacationportlet_EbootCheckbox']")
+	private WebElementFacade ebootDepartmentCheckBox;
+
+	@FindBy(css = "input[id='_evovacation_WAR_EvoVacationportlet_HR DepartmentCheckbox']")
+	private WebElementFacade hrDepartmentCheckBox;
+
+	@FindBy(css = "input[id='_evovacation_WAR_EvoVacationportlet_IT Support DepartmentCheckbox']")
+	private WebElementFacade itSupportDepartmentCheckBox;
+
+	@FindBy(css = "input[id='_evovacation_WAR_EvoVacationportlet_Ixxus DepartmentCheckbox']")
+	private WebElementFacade ixxusDepartmentCheckBox;
+
+	@FindBy(css = "input[id='_evovacation_WAR_EvoVacationportlet_Java DepartmentCheckbox']")
+	private WebElementFacade javaDepartmentCheckBox;
+
+	@FindBy(css = "input[id='_evovacation_WAR_EvoVacationportlet_Games DepartmentCheckbox']")
+	private WebElementFacade gamesDepartmentCheckBox;
+
+	@FindBy(css = "input[id='_evovacation_WAR_EvoVacationportlet_Mobile DepartmentCheckbox']")
+	private WebElementFacade mobileDepartmentCheckBox;
+
+	@FindBy(css = "input[id='_evovacation_WAR_EvoVacationportlet_Perl DepartmentCheckbox']")
+	private WebElementFacade pearlDepartmentCheckBox;
+
+	@FindBy(css = "input[id='_evovacation_WAR_EvoVacationportlet_Sales&MarketingCheckbox']")
+	private WebElementFacade salesAndMarketingDepartmentCheckBox;
+
+	@FindBy(css = "input[id='_evovacation_WAR_EvoVacationportlet_WebCheckbox']")
+	private WebElementFacade webCheckBox;
+
+	@FindBy(css = "input[id='_evovacation_WAR_EvoVacationportlet_Web DepartmentCheckbox']")
+	private WebElementFacade webDepartmentCheckBox;
+
+	// Buildings list:
+
+	@FindBy(css = ".col-building.valign-middle")
+	private List<WebElementFacade> buildingList;
+
+	@FindBy(css = "input[value='Main Building']")
+	private WebElementFacade mainBuildingCheckBox;
+
+	@FindBy(css = "input[id='_evovacation_WAR_EvoVacationportlet_liferay:new-lineCheckbox']")
+	private WebElementFacade notSetBuildingCheckBox;
 
 	@FindBy(css = "input[value='Delta Building']")
 	private WebElementFacade deltaBuildingCheckBox;
@@ -80,6 +132,74 @@ public class TrackPage extends PageObject {
 
 	@FindBy(css = "#_evovacation_WAR_EvoVacationportlet_evozonVacationsSearchContainer_col-employee-name > span > a")
 	private WebElementFacade employeeName;
+
+	@FindBy(css = "[class='aui-paginator-link aui-paginator-next-link']")
+	private WebElementFacade nextPageButton;
+
+	@FindBy(css = "[class='aui-paginator-current-page-report aui-paginator-total']")
+	private WebElementFacade pageRow;
+
+	public void setDepartment(String departmentName) {
+		if (departmentName.contains("All")) {
+			allDepartmentsCheckBox.click();
+		} else if (departmentName.contains("QA")) {
+			qaDepartmentCheckBox.click();
+		} else if (departmentName.contains(".Net")) {
+			dotNetDepartmentCheckBox.click();
+		} else if (departmentName.contains("Accounting")) {
+			accountingDepartmentCheckBox.click();
+		} else if (departmentName.contains("Admin")) {
+			adminDepartmentCheckBox.click();
+		} else if (departmentName.contains("DM")) {
+			dmDepartmentCheckBox.click();
+		} else if (departmentName.contains("Eboot")) {
+			ebootDepartmentCheckBox.click();
+		} else if (departmentName.contains("HR")) {
+			hrDepartmentCheckBox.click();
+		} else if (departmentName.contains("IT Support")) {
+			itSupportDepartmentCheckBox.click();
+		} else if (departmentName.contains("Ixxus")) {
+			ixxusDepartmentCheckBox.click();
+		} else if (departmentName.contains("Java")) {
+			javaDepartmentCheckBox.click();
+		} else if (departmentName.contains("Games")) {
+			gamesDepartmentCheckBox.click();
+		} else if (departmentName.contains("Mobile")) {
+			mobileDepartmentCheckBox.click();
+		} else if (departmentName.contains("Pearl")) {
+			pearlDepartmentCheckBox.click();
+		} else if (departmentName.contains("Sales&Marketing")) {
+			salesAndMarketingDepartmentCheckBox.click();
+		} else if (departmentName.contains("Web")) {
+			webCheckBox.click();
+		} else if (departmentName.contains("Web Department")) {
+			webDepartmentCheckBox.click();
+		}
+	}
+
+	public void setBuilding(String buildingName) {
+		if (buildingName.contains("Main Building")) {
+			mainBuildingCheckBox.click();
+		} else if (buildingName.contains("Delta Building")) {
+			deltaBuildingCheckBox.click();
+		} else if (buildingName.contains("Not Set")) {
+			notSetBuildingCheckBox.click();
+		}
+
+	}
+
+	public int getNumberOfPages() {
+		int totalPagesNumber;
+		String nrOfPages;
+		nrOfPages = pageRow.getText().toString().split("of ")[1].replace(')', ' ').split(" ")[0];
+		totalPagesNumber = Integer.parseInt(nrOfPages);
+		return totalPagesNumber;
+	}
+
+	public void clickNextPage() {
+		nextPageButton.waitUntilVisible();
+		nextPageButton.click();
+	}
 
 	public void trackerStartDate() {
 		trackerStartDate.click();

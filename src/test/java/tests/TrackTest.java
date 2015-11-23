@@ -7,13 +7,17 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
 import helpers.TrackTableModel;
+import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
+import net.thucydides.junit.annotations.UseTestDataFrom;
 import steps.LoginSteps;
 import steps.TrackSteps;
 
-@RunWith(SerenityRunner.class)
+@RunWith(SerenityParameterizedRunner.class)
+@UseTestDataFrom(separator = ';', value = "resources/BuldingsDepartments.csv")
+
 public class TrackTest {
 
 	@Managed(uniqueSession = true)
@@ -24,6 +28,8 @@ public class TrackTest {
 
 	@Steps
 	public TrackSteps trackSteps;
+	
+	public String building, department;
 
 	@Test
 	public void trackTest() {
@@ -32,24 +38,24 @@ public class TrackTest {
 		loginStep.signIn();
 
 		trackSteps.clickTrackTab();
-		trackSteps.setStartDate(24, "Nov", 2015);
-		trackSteps.setEndDate(25, "Nov", 2015);
+		trackSteps.setStartDate(16, "Nov", 2015);
+		trackSteps.setEndDate(30, "Nov", 2015);
 		trackSteps.clickBuildingsDropDown();
-		trackSteps.clickMainBuildingCheckBox();
-		trackSteps.clickMainBuildingCheckBox();		
+		trackSteps.setBulding(building);
+		trackSteps.setBulding(building);
 		trackSteps.clickBuildingsDropDown();
 		trackSteps.clickDepartmentsDropDown();
 		trackSteps.clickAllDepartments();
-		trackSteps.clickQaDepartmentCheckBox();
+		trackSteps.setDepartment(department);
 		trackSteps.clickApply();
-		trackSteps.checkListIsSorter("Main Building", "QA Department");
+		/*  trackSteps.checkListIsSorted("Main Building", "QA Department");
 		List<TrackTableModel> listaInitiala = trackSteps.grabVacationList();
 		trackSteps.sortByEmployeeName();
 		List<TrackTableModel> listaOrdonata = trackSteps.grabVacationList();
 		trackSteps.compareLists(listaOrdonata, listaInitiala);
-
-		// trackSteps.NrOfVacationOnPage(5);
-		// trackSteps.CheckNameListIsSorted();
+		trackSteps.nrOfVacationOnPage(5);
+		trackSteps.clickNextPageUntilTheLastPage();
+		// trackSteps.CheckNameListIsSorted();   */
 	}
 
 }
