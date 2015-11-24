@@ -7,23 +7,29 @@ import org.openqa.selenium.WebDriver;
 import steps.LoginSteps;
 import steps.NewVacationRequestSteps;
 import steps.ZimbraLoginSteps;
+import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
+import net.thucydides.junit.annotations.UseTestDataFrom;
 
-@RunWith(SerenityRunner.class)
+@RunWith(SerenityParameterizedRunner.class)
+@UseTestDataFrom(separator = ';', value = "resources/NewVacationRequestData.csv")
 public class NewVacationRequestTest {
 
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
+
+	public String startDay, startMonth, startYear, endDay, endMonth, endYear;
+	public String vacationType, optionalComment, institutionName, domainName;
 
 	@Steps
 	public LoginSteps loginStep;
 
 	@Steps
 	public NewVacationRequestSteps newVacationRequestSteps;
-	
-	@Steps 
+
+	@Steps
 	ZimbraLoginSteps zimbraLoginSteps;
 
 	@Test
@@ -32,23 +38,23 @@ public class NewVacationRequestTest {
 		loginStep.loginAsTester();
 		loginStep.signIn();
 
-		newVacationRequestSteps.setStartDate(10, "Feb", 2018);
-		newVacationRequestSteps.setEndDate(11, "Feb", 2018);
-		/*  Type of vacation:
-		 *  "Vacation without payment"     *  "Sick Leave"       *  "Marriage" 
-		 *  "Child Birth"                  *  "Funeral"          *  "Other"
-		 *  "Prenatal/Postnatal"           *  "ConcediuIngrijireCopii"      
-		 *  Only "Vacation without payment" has "addDurationDomain" and "addIntitutionName"
-		 *  the rest have only "addComment" */
-		newVacationRequestSteps.selectVacationType("ConcediuIngrijireCopii");
-		newVacationRequestSteps.addDurationDomain("Test Domain");
-		newVacationRequestSteps.addIntitutionName("Test Institution");
-		newVacationRequestSteps.addComment("Test Comment");
+		newVacationRequestSteps.setVacationData(startDay, startMonth, startYear, endDay, endMonth, endYear,
+				vacationType, optionalComment, institutionName, domainName);
+
 		newVacationRequestSteps.saveVacationRequest();
 		newVacationRequestSteps.confirmationMessage();
-		//zimbraLoginSteps.goToZimbraLoginPage();
-		//zimbraLoginSteps.loginAsPM();
-		
+
+		/*
+		 * Type of vacation: "Vacation without payment" * "Sick Leave" *
+		 * "Marriage" "Child Birth" * "Funeral" * "Other" "Prenatal/Postnatal" *
+		 * "ConcediuIngrijireCopii" Only "Vacation without payment" has
+		 * "addDurationDomain" and "addIntitutionName" the rest have only
+		 * "addComment"
+		 */
+
+		// zimbraLoginSteps.goToZimbraLoginPage();
+		// zimbraLoginSteps.loginAsPM();
+
 	}
 
 }

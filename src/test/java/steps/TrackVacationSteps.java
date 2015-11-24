@@ -3,10 +3,6 @@ package steps;
 import java.util.Collections;
 import java.util.List;
 
-import javax.validation.constraints.AssertTrue;
-
-import org.junit.Assert;
-
 import helpers.TrackTableModel;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
@@ -15,7 +11,11 @@ import pages.LoginPage;
 import pages.TrackPage;
 import pages.VacationHomePage;
 
-public class TrackSteps extends ScenarioSteps {
+public class TrackVacationSteps extends ScenarioSteps {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3971270564901543504L;
 	LoginPage loginPage;
 	VacationHomePage vacationHomePage;
 	DatePickerPage datePickerPage;
@@ -27,13 +27,30 @@ public class TrackSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void setStartDate(int day, String month, int year) {
+	public void setData(String startDay, String startMonth, String startYear, String endDay, String endMonth,
+			String endYear, String building, String department) {
+		setStartDate(startDay, startMonth, startYear);
+		setEndDate(endDay, endMonth, endYear);
+		clickBuildingsDropDown();
+		setBulding(building);
+		setBulding(building);
+		clickDepartmentsDropDown();
+		clickAllDepartments();
+		setDepartment(department);
+	}
+
+	@Step
+	public void setStartDate(String days, String month, String years) {
+		int day = Integer.parseInt(days);
+		int year = Integer.parseInt(years);
 		trackPage.trackerStartDate();
 		datePickerPage.setDate(day, month, year);
 	}
 
 	@Step
-	public void setEndDate(int day, String month, int year) {
+	public void setEndDate(String days, String month, String years) {
+		int day = Integer.parseInt(days);
+		int year = Integer.parseInt(years);
 		trackPage.trackerEndDate();
 		datePickerPage.setDate(day, month, year);
 	}
