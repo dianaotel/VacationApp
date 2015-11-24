@@ -82,6 +82,9 @@ public class MyRequestsPage extends PageObject {
 	
 	@FindBy(css = "aui-column column-three column-center ")
 	private WebElementFacade daysNumberCheckboxField;
+	
+	@FindBy(css ="#aui_3_4_0_1_682 .aui-field-input-choice:not([value='ALL'])")
+	public List<WebElementFacade> daysNumberList;
 
 	public void click_myRequestsMenuItem() {
 		myRequestsMenuItem.click();
@@ -291,18 +294,15 @@ public class MyRequestsPage extends PageObject {
 			}
 		}
 	
-	public void randomNumberOfDays() {
-		element(daysNumberCheckboxField).waitUntilVisible();
-		List<WebElement> daysNumberList = daysNumberCheckboxField
-				.findElements(By.cssSelector(".aui-field-content"));
-
-		if (daysNumberList.size() > 0) {
+	public String randomNumberOfDays() {
+		
 			Random rand = new Random();
 			int nowRand = rand.nextInt(daysNumberList.size());
 
 			System.out.println("Rand: " + nowRand);
 			System.out.println("daysNumberList.size(): " + daysNumberList.size());
-			daysNumberList.get(Integer.valueOf(nowRand)).findElement(By.cssSelector("input[type*='checkbox']")).click();
-		}
+			daysNumberList.get(nowRand).click();
+			return daysNumberList.get(nowRand).getText();
+		
 	}
 }

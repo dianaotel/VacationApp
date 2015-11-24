@@ -51,13 +51,14 @@ public class MyRequestsTest {
 	@Test
 	public void verifiyThatDaysNumberIsCorrect() {
 		
-		myRequestSteps.randomNumberOfDays();
+		String x = myRequestSteps.randomNumberOfDays();
 		myRequestSteps.applyButton();
 		myRequestSteps.holidayCheckbox();
 		myRequestSteps.applyButton();
 		
 		actualResultList = myRequestSteps.grabSimpleResultsList();	
-		//myRequestSteps.verifyListDaysNumber(filterValue, actualResultList);
+		
+		myRequestSteps.verifyListDaysNumber(x, actualResultList);
 	}
 	
 	@Test
