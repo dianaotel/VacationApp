@@ -8,6 +8,8 @@ import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -77,6 +79,9 @@ public class MyRequestsPage extends PageObject {
 
 	@FindBy(css = ".results-grid")
 	private WebElement vacationListContainer;
+	
+	@FindBy(css = "aui-column column-three column-center ")
+	private WebElementFacade daysNumberCheckboxField;
 
 	public void click_myRequestsMenuItem() {
 		myRequestsMenuItem.click();
@@ -198,12 +203,8 @@ public class MyRequestsPage extends PageObject {
 			
 		}
 		
-		
 		return resultList;
 	}
-
-	
-	
 	
 	public List<MyRequestTableModel> grabResultsList() {
 
@@ -250,4 +251,58 @@ public class MyRequestsPage extends PageObject {
 		}
 		return date;
 	}		
+	
+	public void verifyListDaysNumber(String filterValue, List<MyRequestTableModel> actualResultList) {
+	String[] filterListValues =filterValue.split(" - ");
+	System.out.println("filterListValues : " + filterListValues.toString());
+	boolean isValid = true;
+	
+	if(filterListValues.length == 2){
+		System.out.println("There are 2 items: " + filterListValues.length);
+		int minValue = Integer.valueOf(filterListValues[0].trim());
+		int maxValue = Integer.valueOf(filterListValues[1].trim());
+		
+		for (MyRequestTableModel rowEntryNow : actualResultList) {
+			System.out.println("New entry: " + rowEntryNow.getDaysNumber());
+			int daysNow =  Integer.valueOf(rowEntryNow.getDaysNumber().trim());
+			
+			System.out.println("Min Condition: " + (minValue >= daysNow));
+			System.out.println("Max Condition: " + (maxValue <= daysNow));
+			if((minValue >= daysNow || maxValue <= daysNow)){
+				System.out.println("minValue: " + minValue);
+				System.out.println("maxValue: " + maxValue);
+				System.out.println("actualValue: " + daysNow);
+				isValid = false;
+			}
+			
+			Assert.assertTrue("Value is not as expected for entry: " + rowEntryNow.getDaysNumber(), isValid);
+		}
+		
+		
+	}else{
+		System.out.println("There are: " + filterListValues.length + " values.");
+		if(filterListValues[0].trim().contains("ALL")){
+			System.out.println("All Cases");
+		}else{
+			if(filterListValues[0].trim().contains("+")){
+				System.out.println("+51 case");
+					}
+				}
+			}
+		}
+	
+	public void randomNumberOfDays() {
+		element(daysNumberCheckboxField).waitUntilVisible();
+		List<WebElement> daysNumberList = daysNumberCheckboxField
+				.findElements(By.cssSelector(".aui-field-content"));
+
+		if (daysNumberList.size() > 0) {
+			Random rand = new Random();
+			int nowRand = rand.nextInt(daysNumberList.size());
+
+			System.out.println("Rand: " + nowRand);
+			System.out.println("daysNumberList.size(): " + daysNumberList.size());
+			daysNumberList.get(Integer.valueOf(nowRand)).findElement(By.cssSelector("input[type*='checkbox']")).click();
+		}
+	}
 }

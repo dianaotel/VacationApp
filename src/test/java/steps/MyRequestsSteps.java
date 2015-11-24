@@ -67,44 +67,14 @@ public class MyRequestsSteps extends ScenarioSteps {
 	public List<MyRequestTableModel> grabSimpleResultsList() {
 		return myRequestsPage.grabSimpleResultsList();
 	}
-
+	
 	@Step
-	public void verifyListDaysNumber(String filterValue, List<MyRequestTableModel> actualResultList) {
-		String[] filterListValues =filterValue.split(" - ");
-		System.out.println("filterListValues : " + filterListValues.toString());
-		boolean isValid = true;
-		
-		if(filterListValues.length == 2){
-			System.out.println("There are 2 items: " + filterListValues.length);
-			int minValue = Integer.valueOf(filterListValues[0].trim());
-			int maxValue = Integer.valueOf(filterListValues[1].trim());
-			
-			for (MyRequestTableModel rowEntryNow : actualResultList) {
-				System.out.println("New entry: " + rowEntryNow.getDaysNumber());
-				int daysNow =  Integer.valueOf(rowEntryNow.getDaysNumber().trim());
-				
-				System.out.println("Min Condition: " + (minValue >= daysNow));
-				System.out.println("Max Condition: " + (maxValue <= daysNow));
-				if((minValue >= daysNow || maxValue <= daysNow)){
-					System.out.println("minValue: " + minValue);
-					System.out.println("maxValue: " + maxValue);
-					System.out.println("actualValue: " + daysNow);
-					isValid = false;
-				}
-				
-				Assert.assertTrue("Value is not as expected for entry: " + rowEntryNow.getDaysNumber(), isValid);
-			}
-			
-			
-		}else{
-			System.out.println("There are: " + filterListValues.length + " values.");
-			if(filterListValues[0].trim().contains("ALL")){
-				System.out.println("All Case....");
-			}else{
-				if(filterListValues[0].trim().contains("+")){
-					System.out.println("+51 case");
-				}
-			}
-		}
+	public void randomNumberOfDays() {
+		myRequestsPage.randomNumberOfDays();
 	}
+	
+	//@Step
+	//public void verifyListDaysNumber() {
+		//myRequestsPage.verifyListDaysNumber(filterValue, actualResultList);
+	//}
 }
