@@ -28,7 +28,7 @@ public class MyRequestsTest {
 //	private String filterValue = "51 +";
 	private String filterValue = "1 - 5";
 
-	@Test
+//	@Test
 	public void verifyThatTypeIsCorrect() {
 
 		myRequestSteps.holidayCheckbox();
@@ -38,7 +38,7 @@ public class MyRequestsTest {
 		myRequestSteps.verifyThatTypeIsCorrect("Holiday");
 	}
 	
-	@Test
+//	@Test
 	public void verifyThatStatusIsCorrect() {
 
 		myRequestSteps.pendingCheckbox();
@@ -50,20 +50,23 @@ public class MyRequestsTest {
 
 	@Test
 	public void verifiyThatDaysNumberIsCorrect() {
+		loginSteps.goToLoginPage();
+		loginSteps.loginAsPM();
+		loginSteps.signIn();
 		
-		String x = myRequestSteps.randomNumberOfDays();
+		String filterValue = myRequestSteps.randomNumberOfDays();
 		myRequestSteps.applyButton();
 		myRequestSteps.holidayCheckbox();
 		myRequestSteps.applyButton();
 		
-		actualResultList = myRequestSteps.grabSimpleResultsList();	
+//		actualResultList = myRequestSteps.grabSimpleResultsList();	
 		
-		myRequestSteps.verifyListDaysNumber(x, actualResultList);
+		myRequestSteps.verifyListDaysNumber(filterValue);
 	}
 	
-	@Test
+//	@Test
 	public void verifyVacationsInFuture() {
-
+		
 		loginSteps.goToLoginPage();
 		loginSteps.loginAsPM();
 		loginSteps.signIn();

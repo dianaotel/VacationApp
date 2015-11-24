@@ -69,12 +69,12 @@ public class MyRequestsSteps extends ScenarioSteps {
 	}
 	
 	@Step
-	public void randomNumberOfDays() {
-		myRequestsPage.randomNumberOfDays();
+	public String randomNumberOfDays() {
+		return myRequestsPage.randomNumberOfDays();
 	}
 	
-	//@Step
-	//public void verifyListDaysNumber() {
-		//myRequestsPage.verifyListDaysNumber(filterValue, actualResultList);
-	//}
+	@Step
+	public void verifyListDaysNumber(String filterValue) {
+		myRequestsPage.verifyListDaysNumber(filterValue);
+	}
 }

@@ -33,5 +33,4 @@ public class ViewVacationsRandomFilterTest {
 		viewVacationsSteps.selectRandomVacationStatus();
 		viewVacationsSteps.applySelectedFilters();
 	}
-
 }

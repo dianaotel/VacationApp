@@ -83,8 +83,13 @@ public class MyRequestsPage extends PageObject {
 	@FindBy(css = "aui-column column-three column-center ")
 	private WebElementFacade daysNumberCheckboxField;
 	
-	@FindBy(css ="#aui_3_4_0_1_682 .aui-field-input-choice:not([value='ALL'])")
+	@FindBy(css =".column-center.column-three:not(.aui-column-last) .aui-field-input-choice:not([value='ALL'])")
 	public List<WebElementFacade> daysNumberList;
+	
+	
+	@FindBy(css =".column-center.column-three:not(.aui-column-last) .aui-choice-label")
+	public List<WebElementFacade> daysNumberListText;
+
 
 	public void click_myRequestsMenuItem() {
 		myRequestsMenuItem.click();
@@ -255,30 +260,47 @@ public class MyRequestsPage extends PageObject {
 		return date;
 	}		
 	
-	public void verifyListDaysNumber(String filterValue, List<MyRequestTableModel> actualResultList) {
+	public void verifyListDaysNumber(String filterValue) {
 	String[] filterListValues =filterValue.split(" - ");
 	System.out.println("filterListValues : " + filterListValues.toString());
 	boolean isValid = true;
 	
 	if(filterListValues.length == 2){
+//		List<MyRequestTableModel> resultList = new ArrayList<MyRequestTableModel>();
+//		element(vacationListContainer).waitUntilVisible();
+//		List<WebElement> vacationEntryList = vacationListContainer
+//				.findElements(By.cssSelector("tr.results-row:not(.lfr-template)"));
+//	
+		
 		System.out.println("There are 2 items: " + filterListValues.length);
 		int minValue = Integer.valueOf(filterListValues[0].trim());
 		int maxValue = Integer.valueOf(filterListValues[1].trim());
-		
-		for (MyRequestTableModel rowEntryNow : actualResultList) {
-			System.out.println("New entry: " + rowEntryNow.getDaysNumber());
-			int daysNow =  Integer.valueOf(rowEntryNow.getDaysNumber().trim());
-			
-			System.out.println("Min Condition: " + (minValue >= daysNow));
-			System.out.println("Max Condition: " + (maxValue <= daysNow));
-			if((minValue >= daysNow || maxValue <= daysNow)){
-				System.out.println("minValue: " + minValue);
-				System.out.println("maxValue: " + maxValue);
-				System.out.println("actualValue: " + daysNow);
-				isValid = false;
+		System.out.println("MAX VALUE DAFQ: " + maxValue);
+		System.out.println("MIN VALUE DAFQ: " + minValue);
+		for (WebElement webElement : daysNumberList) {
+//		for (MyRequestTableModel rowEntryNow : actualResultList) {
+			System.out.println("New entry: " + webElement.getText());
+			try{
+				waitFor(webElement);
+				int daysNow =  Integer.valueOf(webElement.getText().trim());
+				
+				System.out.println("Min Condition: " + (minValue >= daysNow));
+				System.out.println("Max Condition: " + (maxValue <= daysNow));
+				if((minValue >= daysNow || maxValue <= daysNow)){
+					System.out.println("minValue: " + minValue);
+					System.out.println("maxValue: " + maxValue);
+					System.out.println("actualValue: " + daysNow);
+					isValid = false;
+				}
+			}
+			catch(NumberFormatException e){
+				System.out.println("No values found! " + e);
+				break;
 			}
 			
-			Assert.assertTrue("Value is not as expected for entry: " + rowEntryNow.getDaysNumber(), isValid);
+			
+			waitABit(5161);
+			Assert.assertTrue("Value is not as expected for entry: " + webElement.getText(), isValid);
 		}
 		
 		
@@ -297,12 +319,14 @@ public class MyRequestsPage extends PageObject {
 	public String randomNumberOfDays() {
 		
 			Random rand = new Random();
-			int nowRand = rand.nextInt(daysNumberList.size());
+			
+			int nowRand = rand.nextInt(daysNumberListText.size());
 
 			System.out.println("Rand: " + nowRand);
 			System.out.println("daysNumberList.size(): " + daysNumberList.size());
-			daysNumberList.get(nowRand).click();
-			return daysNumberList.get(nowRand).getText();
+			daysNumberListText.get(nowRand).click();
+			System.out.println("TEXT FROM HELL " + daysNumberListText.get(nowRand).getText());
+			return daysNumberListText.get(nowRand).getText().toString();
 		
 	}
 }
