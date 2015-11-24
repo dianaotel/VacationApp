@@ -6,6 +6,8 @@ import pages.NewVacationRequestPage;
 import pages.VacationHomePage;
 import tests.NewVacationRequestTest;
 
+import org.openqa.jetty.html.Break;
+
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 
@@ -16,14 +18,34 @@ public class NewVacationRequestSteps extends ScenarioSteps {
 	DatePickerPage datePickerPage;
 
 	@Step
-	public void setStartDate(int day, String month, int year) {
+	public void setVacationData(String startDay, String startMonth, String startYear, String endDay, String endMonth,
+			String endYear, String vacationType, String optionalComment, String institutionName, String domainName) {
+		setStartDate(startDay, startMonth, startYear);
+		setEndDate(endDay, endMonth, endYear);
+		selectVacationType(vacationType);
+		addComment(optionalComment);
+
+		if (institutionName.isEmpty() && domainName.isEmpty()) {
+
+		} else {
+			addDurationDomain(domainName);
+			addIntitutionName(institutionName);
+		}
+	}
+
+	@Step
+	public void setStartDate(String days, String month, String years) {
+		int day = Integer.parseInt(days);
+		int year = Integer.parseInt(years);
 		vacationHomePage.createNewVacationRequestTab();
 		newVacationRequestPage.startDate();
 		datePickerPage.setDate(day, month, year);
 	}
 
 	@Step
-	public void setEndDate(int day, String month, int year) {
+	public void setEndDate(String days, String month, String years) {
+		int day = Integer.parseInt(days);
+		int year = Integer.parseInt(years);
 		newVacationRequestPage.endDate();
 		datePickerPage.setDate(day, month, year);
 	}

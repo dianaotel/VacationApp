@@ -33,8 +33,8 @@ public class SelectMoreVacTypesAtOnceTest {
 		loginStep.loginAsTester();
 		loginStep.signIn();
 
-		newVacationRequestSteps.setStartDate(26, "Feb", 2018);
-		newVacationRequestSteps.setEndDate(27, "Feb", 2018);
+		newVacationRequestSteps.setStartDate("26", "Feb", "2018");
+		newVacationRequestSteps.setEndDate("27", "Feb", "2018");
 		selectMoreVacTypesAtOnceSteps.selectRandomFilterThousand();
 		newVacationRequestSteps.saveVacationRequest();
 		newVacationRequestSteps.confirmationMessage();

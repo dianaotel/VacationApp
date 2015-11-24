@@ -1,0 +1,4 @@
+StartDay;StartMonth;StartYear;EndDay;EndMonth;EndYear;VacationType;OptionalCommet;InstitutionName;DomainName;
+11;Aug;2015;15;Jul;2016;ConcediuIngrijireCopii;TestComment;;;
+20;Dec;2015;11;Jul;2016;Child Birth;TestComment;;;
+15;Jul;2016;16;Aug;2016;Vacation without payment;TestComment;TestInstitution;TestDomain;
