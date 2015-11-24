@@ -11,7 +11,7 @@ import pages.LoginPage;
 import pages.TrackPage;
 import pages.VacationHomePage;
 
-public class TrackSteps extends ScenarioSteps {
+public class TrackVacationSteps extends ScenarioSteps {
 	/**
 	 * 
 	 */
