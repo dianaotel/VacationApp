@@ -72,4 +72,9 @@ public class VacationsReportSteps extends ScenarioSteps {
 		vacationsReportPage.checkIfSearchForPmsReportIsCorrect();
 	}
 	
+	@Step
+	public void checkIfSearchForTesterReportIsCorrect() {
+		vacationsReportPage.checkIfSearchForTesterReportIsCorrect();
+	}
+	
 }

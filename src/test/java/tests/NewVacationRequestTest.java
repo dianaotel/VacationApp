@@ -1,4 +1,11 @@
 package tests;
+/**
+ * Type of vacation: "Vacation without payment" * "Sick Leave" *
+ * "Marriage" "Child Birth" * "Funeral" * "Other" "Prenatal/Postnatal" *
+ * "ConcediuIngrijireCopii" Only "Vacation without payment" has
+ * "addDurationDomain" and "addIntitutionName" the rest have only
+ * "addComment"
+ */
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -8,7 +15,6 @@ import steps.LoginSteps;
 import steps.NewVacationRequestSteps;
 import steps.ZimbraLoginSteps;
 import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
-import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.junit.annotations.UseTestDataFrom;
@@ -43,17 +49,6 @@ public class NewVacationRequestTest {
 
 		newVacationRequestSteps.saveVacationRequest();
 		newVacationRequestSteps.confirmationMessage();
-
-		/*
-		 * Type of vacation: "Vacation without payment" * "Sick Leave" *
-		 * "Marriage" "Child Birth" * "Funeral" * "Other" "Prenatal/Postnatal" *
-		 * "ConcediuIngrijireCopii" Only "Vacation without payment" has
-		 * "addDurationDomain" and "addIntitutionName" the rest have only
-		 * "addComment"
-		 */
-
-		// zimbraLoginSteps.goToZimbraLoginPage();
-		// zimbraLoginSteps.loginAsPM();
 
 	}
 

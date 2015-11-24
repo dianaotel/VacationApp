@@ -38,7 +38,7 @@ public class ViewVacationsPage extends PageObject {
 
 	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_applyButton")
 	private WebElementFacade applyButton;
-	
+
 	@FindBy(id = "align-left col-1 col-employee.name first valign-middle")
 	private WebElementFacade lastNameTableRow;
 
@@ -100,7 +100,7 @@ public class ViewVacationsPage extends PageObject {
 		fieldLastName.type(lastName);
 		fieldFirstName.type(firstName);
 	}
-	
+
 	public void applySelectedFilters() {
 		applyButton.click();
 	}
@@ -110,13 +110,8 @@ public class ViewVacationsPage extends PageObject {
 	}
 
 	public void searchForVacationsOfEmployee() {
-		Assert.assertTrue("Searched for vacations of existent employee",
+		Assert.assertTrue("Correct search for vacations of existent employee",
 				element(orderByEmployee).getText().contains("Employee"));
-	}
-
-	public void checkIfSearchForTesterReportIsCorrect() {
-		Assert.assertTrue("Correct search for vacations report of existent employee",
-				element(lastNameTableRow).getText().contains(Constants.TESTER_LAST_NAME));
 	}
 
 	public void chooseNumberOfItemsPerPage() {

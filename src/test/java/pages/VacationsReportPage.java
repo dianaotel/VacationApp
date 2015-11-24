@@ -89,5 +89,10 @@ public class VacationsReportPage extends PageObject {
 		Assert.assertTrue("Correct search for vacations report of existent employee",
 				element(lastNameTableRow).getText().contains(Constants.PM_LAST_NAME));
 	}
+	
+	public void checkIfSearchForTesterReportIsCorrect() {
+		Assert.assertTrue("Correct search for vacations report of existent employee",
+				element(lastNameTableRow).getText().contains(Constants.TESTER_LAST_NAME));
+	}
 
 }
