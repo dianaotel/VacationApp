@@ -4,9 +4,6 @@ import pages.DatePickerPage;
 import pages.LoginPage;
 import pages.NewVacationRequestPage;
 import pages.VacationHomePage;
-import tests.NewVacationRequestTest;
-
-import org.openqa.jetty.html.Break;
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
