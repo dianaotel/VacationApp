@@ -7,22 +7,23 @@ import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.pages.PageObject;
 
 @DefaultUrl(Constants.ZIMBRA_EMAIL_URL)
-public class ZimbraLoginPage extends PageObject{
-	@FindBy(id="username")
+public class ZimbraLoginPage extends PageObject {
+	@FindBy(id = "username")
 	private WebElementFacade usernameBox;
-	
-	@FindBy(id="password")
+
+	@FindBy(id = "password")
 	private WebElementFacade passwordBox;
-	
-	@FindBy(css="[type=submit]")
+
+	@FindBy(css = "[type=submit]")
 	private WebElementFacade loginButton;
-	
-	public void enterCredentials(String username, String password){
+
+	public void enterCredentials(String username, String password) {
 		usernameBox.type(username);
 		passwordBox.type(password);
 	}
-	public void login(){
+
+	public void login() {
 		loginButton.click();
 	}
-	
+
 }

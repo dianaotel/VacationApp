@@ -1,7 +1,5 @@
 package tests;
 
-
-
 import java.util.List;
 
 import org.junit.Test;
@@ -28,7 +26,7 @@ public class TrackVacationSortByNameTest {
 
 	@Steps
 	public TrackVacationSteps trackSteps;
-	
+
 	TrackTableModel trackTableModel;
 	public String startDay, startMonth, startYear, endDay, endMonth, endYear, building, department;
 
@@ -39,15 +37,13 @@ public class TrackVacationSortByNameTest {
 		loginStep.signIn();
 
 		trackSteps.clickTrackTab();
-
 		trackSteps.setData(startDay, startMonth, startYear, endDay, endMonth, endYear, building, department);
 		trackSteps.clickApply();
-		
-		trackSteps.sortByEmployeeName(); 
+		trackSteps.sortByEmployeeName();
 		List<TrackTableModel> listaInitiala = trackSteps.grabVacationList();
-		  trackSteps.sortByEmployeeName(); List<TrackTableModel> listaOrdonata
-		  = trackSteps.grabVacationList();
-		  trackSteps.compareLists(listaOrdonata, listaInitiala);
+		trackSteps.sortByEmployeeName();
+		List<TrackTableModel> listaOrdonata = trackSteps.grabVacationList();
+		trackSteps.compareLists(listaOrdonata, listaInitiala);
 
 	}
 }

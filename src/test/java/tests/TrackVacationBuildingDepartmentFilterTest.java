@@ -33,10 +33,8 @@ public class TrackVacationBuildingDepartmentFilterTest {
 		loginStep.signIn();
 
 		trackSteps.clickTrackTab();
-
 		trackSteps.setData(startDay, startMonth, startYear, endDay, endMonth, endYear, building, department);
 		trackSteps.clickApply();
-
 		trackSteps.checkListIsSorted("Main Building", "QA Department");
 
 	}

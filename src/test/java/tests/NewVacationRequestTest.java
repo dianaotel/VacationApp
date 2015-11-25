@@ -35,9 +35,6 @@ public class NewVacationRequestTest {
 	@Steps
 	public NewVacationRequestSteps newVacationRequestSteps;
 
-	@Steps
-	ZimbraLoginSteps zimbraLoginSteps;
-
 	@Test
 	public void newVacationRequest() {
 		loginStep.goToLoginPage();
@@ -46,7 +43,6 @@ public class NewVacationRequestTest {
 
 		newVacationRequestSteps.setVacationData(startDay, startMonth, startYear, endDay, endMonth, endYear,
 				vacationType, optionalComment, institutionName, domainName);
-
 		newVacationRequestSteps.saveVacationRequest();
 		newVacationRequestSteps.confirmationMessage();
 

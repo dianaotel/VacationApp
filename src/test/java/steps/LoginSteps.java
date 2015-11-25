@@ -46,5 +46,5 @@ public class LoginSteps extends ScenarioSteps {
 	public void checkIfItLogsIn() {
 		loginPage.checkIfItLogsIn();
 	}
-	
+
 }

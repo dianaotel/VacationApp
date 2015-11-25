@@ -33,10 +33,8 @@ public class ScrollThroughAllPagesTrackVacationTest {
 		loginStep.signIn();
 
 		trackSteps.clickTrackTab();
-
 		trackSteps.setData(startDay, startMonth, startYear, endDay, endMonth, endYear, building, department);
 		trackSteps.clickApply();
-
 		trackSteps.nrOfVacationOnPage(5);
 		trackSteps.clickNextPageUntilTheLastPage();
 	}

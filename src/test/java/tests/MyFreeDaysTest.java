@@ -18,7 +18,7 @@ public class MyFreeDaysTest {
 
 	@Steps
 	public LoginSteps loginStep;
-	
+
 	@Steps
 	public MyFreeDaysSteps myFreeDaysSteps;
 
@@ -27,7 +27,7 @@ public class MyFreeDaysTest {
 		loginStep.goToLoginPage();
 		loginStep.loginAsTester();
 		loginStep.signIn();
-		
+
 		myFreeDaysSteps.checkIfTheFreeDaysValuesAreTheSame();
 	}
 

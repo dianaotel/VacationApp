@@ -32,7 +32,6 @@ public class FilterVacationsInTrackTabTest {
 		loginStep.signIn();
 
 		trackSteps.clickTrackTab();
-
 		trackSteps.setData(startDay, startMonth, startYear, endDay, endMonth, endYear, building, department);
 		trackSteps.clickApply();
 	}
