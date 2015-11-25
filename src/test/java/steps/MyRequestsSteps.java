@@ -6,8 +6,6 @@ import pages.VacationHomePage;
 
 import java.util.List;
 
-import org.junit.Assert;
-
 import helpers.MyRequestTableModel;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;

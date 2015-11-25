@@ -266,19 +266,13 @@ public class MyRequestsPage extends PageObject {
 	boolean isValid = true;
 	
 	if(filterListValues.length == 2){
-//		List<MyRequestTableModel> resultList = new ArrayList<MyRequestTableModel>();
-//		element(vacationListContainer).waitUntilVisible();
-//		List<WebElement> vacationEntryList = vacationListContainer
-//				.findElements(By.cssSelector("tr.results-row:not(.lfr-template)"));
-//	
 		
 		System.out.println("There are 2 items: " + filterListValues.length);
 		int minValue = Integer.valueOf(filterListValues[0].trim());
 		int maxValue = Integer.valueOf(filterListValues[1].trim());
-		System.out.println("MAX VALUE DAFQ: " + maxValue);
-		System.out.println("MIN VALUE DAFQ: " + minValue);
+		System.out.println("Maximum value : " + maxValue);
+		System.out.println("Minimum value : " + minValue);
 		for (WebElement webElement : daysNumberList) {
-//		for (MyRequestTableModel rowEntryNow : actualResultList) {
 			System.out.println("New entry: " + webElement.getText());
 			try{
 				waitFor(webElement);
@@ -325,7 +319,7 @@ public class MyRequestsPage extends PageObject {
 			System.out.println("Rand: " + nowRand);
 			System.out.println("daysNumberList.size(): " + daysNumberList.size());
 			daysNumberListText.get(nowRand).click();
-			System.out.println("TEXT FROM HELL " + daysNumberListText.get(nowRand).getText());
+			System.out.println("Selected value is: " + daysNumberListText.get(nowRand).getText());
 			return daysNumberListText.get(nowRand).getText().toString();
 		
 	}

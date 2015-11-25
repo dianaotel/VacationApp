@@ -1,12 +1,9 @@
 package tests;
 
-import java.util.List;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
-import helpers.MyRequestTableModel;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
@@ -22,23 +19,16 @@ public class MyRequestsTest {
 	MyRequestsSteps myRequestSteps;
 	@Steps
 	LoginSteps loginSteps;
-	
-	private List<MyRequestTableModel> actualResultList;
-//	private String filterValue = "ALL";
-//	private String filterValue = "51 +";
-	private String filterValue = "1 - 5";
 
-//	@Test
+	@Test
 	public void verifyThatTypeIsCorrect() {
-
+		
 		myRequestSteps.holidayCheckbox();
-		myRequestSteps.applyButton();
-		myRequestSteps.pendingCheckbox();
 		myRequestSteps.applyButton();
 		myRequestSteps.verifyThatTypeIsCorrect("Holiday");
 	}
 	
-//	@Test
+	@Test
 	public void verifyThatStatusIsCorrect() {
 
 		myRequestSteps.pendingCheckbox();
@@ -50,21 +40,18 @@ public class MyRequestsTest {
 
 	@Test
 	public void verifiyThatDaysNumberIsCorrect() {
-		loginSteps.goToLoginPage();
-		loginSteps.loginAsPM();
-		loginSteps.signIn();
 		
+		myRequestSteps.pendingCheckbox();
+		myRequestSteps.applyButton();
 		String filterValue = myRequestSteps.randomNumberOfDays();
 		myRequestSteps.applyButton();
 		myRequestSteps.holidayCheckbox();
 		myRequestSteps.applyButton();
 		
-//		actualResultList = myRequestSteps.grabSimpleResultsList();	
-		
 		myRequestSteps.verifyListDaysNumber(filterValue);
 	}
 	
-//	@Test
+	@Test
 	public void verifyVacationsInFuture() {
 		
 		loginSteps.goToLoginPage();
